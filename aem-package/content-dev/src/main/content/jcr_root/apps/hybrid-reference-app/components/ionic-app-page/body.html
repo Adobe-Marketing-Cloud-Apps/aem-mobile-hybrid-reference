@@ -1,0 +1,34 @@
+<body ng-app="starter"
+        data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}">
+    <div data-sly-test="${!wcmmode.disabled}">
+        <div data-sly-resource="${'clientcontext' @ resourceType='cq/personalization/components/clientcontext_optimized'}" data-sly-unwrap></div>
+    </div>
+    <div id="appWrap" ng-cloak>
+
+        <div data-sly-include="header.html" data-sly-unwrap></div>
+
+        <div data-sly-test.authorMode='${ wcmmode.edit || wcmmode.design || wcmmode.preview }'>
+
+            <!--/* Author mode enabled */-->
+            <ion-nav-view>
+                <div data-sly-include="template.html" data-sly-unwrap></div>
+            </ion-nav-view>
+
+        </div>
+        <div data-sly-test="${!authorMode}">
+
+            <ion-nav-view></ion-nav-view>
+
+            <script type="text/javascript" src="${pageHelper.relativePathToRoot}cordova.js"></script>
+
+        </div>
+
+        <div data-sly-include="footer.html" data-sly-unwrap></div>
+    </div>
+
+    <js data-sly-call="${clientLib.js @ categories='ionic'}" data-sly-unwrap></js>
+    <div data-sly-include="js_clientlibs.html" data-sly-unwrap></div>
+    <div data-sly-test="${!wcmmode.disabled}">
+        <div data-sly-resource="${'cloudservices' @ resourceType='cq/cloudserviceconfigs/components/servicecomponents'}" data-sly-unwrap></div>
+    </div>
+</body>

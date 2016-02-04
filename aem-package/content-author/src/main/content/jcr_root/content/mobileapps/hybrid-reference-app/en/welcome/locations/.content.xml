@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2015-11-04T11:11:57.984-05:00"
+        cq:lastModifiedBy="admin"
+        jcr:lastModified="{Date}2015-11-04T11:11:57.941-05:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Locations"
+        sling:resourceType="hybrid-reference-app/components/locations">
+        <image
+            jcr:lastModified="{Date}2015-11-10T14:08:56.949-05:00"
+            jcr:lastModifiedBy="admin"
+            jcr:primaryType="nt:unstructured"
+            imageRotate="0">
+            <file/>
+        </image>
+    </jcr:content>
+    <ottawa/>
+    <sanjose/>
+    <sanfrancisco/>
+</jcr:root>

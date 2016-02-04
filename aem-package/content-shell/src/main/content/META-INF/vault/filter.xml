@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/content/mobileapps/hybrid-reference-app/shell/jcr:content/pge-app/app-content/phonegap"/>
+</workspaceFilter>

@@ -1,0 +1,41 @@
+.news {
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: top center;
+}
+
+.news .articles {
+	padding-top: 110px;
+}
+
+.news article {
+	margin-bottom: 30px;
+	margin-left: 40px;
+	margin-right: 40px;
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+.news a {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+.news article header {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.news article h2 {
+	color: #FFFFFF;
+	font-family: 'Futura-CondensedExtraBold', 'sans serif';
+	font-size: 1.6em;
+	letter-spacing: -1px;
+	margin: 0;
+}
+
+.news article p {
+	color: #FFFFFF;
+	font-size: 0.9rem;
+	padding-bottom: 0.5rem;
+}

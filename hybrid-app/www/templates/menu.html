@@ -1,0 +1,68 @@
+<ion-side-menus side="left" enable-menu-with-back-views="false">
+    <ion-side-menu-content>
+        <ion-nav-bar class="clear">
+            <ion-nav-back-button>
+            </ion-nav-back-button>
+            <ion-nav-buttons side="left">
+                <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+            </ion-nav-buttons>
+        </ion-nav-bar>
+        <ion-nav-view name="menuContent"></ion-nav-view>
+    </ion-side-menu-content>
+
+    <ion-side-menu side="left">
+
+        <!-- Header bar in menu.               -->
+        <!-- show user avatar if authenticated -->
+        <ion-header-bar class="bar-stable">
+            <a class="center" menu-close href="#/app/welcome">
+                <img ng-hide='profileImage' class="avatar" src="img/profile.png" />
+                <img ng-show='profileImage' class="avatar" src="{{profileImage}}" />
+            </a>
+        </ion-header-bar>
+
+        <ion-content>
+
+            <!-- Menu list -->
+            <ion-list>
+
+                <ion-item ng-hide='isLoggedIn' class="item item-icon-right" menu-close ng-click="showLogin()">
+                    Login
+                    <i class="icon ion-log-in"></i>
+                </ion-item>
+
+                <ion-item ng-show='isLoggedIn' class="item item-icon-right" menu-close ng-click="logout()" ui-sref="app.welcome">
+                    Logout
+                    <i class="icon ion-log-in"></i>
+                </ion-item>
+
+                <ion-item class="item item-icon-right" menu-close href="#/app/profile">
+                    Profile
+                    <i class="icon ion-person"></i>
+                </ion-item>
+
+                <ion-item class="item item-icon-right" menu-close href="#/app/news">
+                    News and Events
+                    <i class="icon ion-earth"></i>
+                </ion-item>
+
+                <ion-item class="item item-icon-right" menu-close href="#/app/location">
+                    Location
+                    <i class="icon ion-location"></i>
+                </ion-item>
+
+                <ion-item class="item item-icon-right" menu-close href="#/app/about">
+                    About Us
+                    <i class="icon ion-information-circled"></i>
+                </ion-item>
+
+                <ion-item class="item item-icon-right" menu-close ng-click="updateApp('en')">
+                    Update
+                    <i class="icon ion-ios-cloud-download"></i>
+                </ion-item>
+
+            </ion-list>
+        </ion-content>
+
+    </ion-side-menu>
+</ion-side-menus>

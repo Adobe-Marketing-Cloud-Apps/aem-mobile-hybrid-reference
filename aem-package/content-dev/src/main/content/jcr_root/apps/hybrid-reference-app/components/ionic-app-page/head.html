@@ -1,0 +1,46 @@
+<head data-sly-use.wcmInit="initwcm.js"
+        data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}">
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+
+    <title>${properties.title}</title>
+
+    <!--/* Outputs the WCM initialization code.If WCM mode is disabled nothing is rendered */-->
+    <meta data-sly-test="${!wcmmode.disabled && wcmInit.isTouchAuthoring}" data-sly-call="${clientLib.all @ categories='cq.authoring.page'}" data-sly-unwrap></meta>
+    <meta data-sly-test="${!wcmmode.disabled && !wcmInit.isTouchAuthoring}" data-sly-call="${clientLib.all @ categories='cq.wcm.edit'}" data-sly-unwrap></meta>
+    <meta data-sly-test="${!wcmmode.disabled}">
+        <div data-sly-call="${clientLib.all @ categories='personalization.kernel'}" data-sly-unwrap></div>
+        <div data-sly-resource="${'config' @ resourceType='cq/personalization/components/clientcontext_optimized/config'}" data-sly-unwrap></div>
+        <div data-sly-resource="${'contexthub' @ resourceType='granite/contexthub/components/contexthub'}" data-sly-unwrap></div>
+    </meta>
+    <script data-sly-test="${!wcmmode.disabled && !wcmInit.isTouchAuthoring}" type="text/javascript">
+        (function() {
+
+            var cfg = ${wcmInit.undoConfig @ context='unsafe'};
+            cfg.pagePath = "${currentPage.path @ context='uri'}";
+
+            if (CQClientLibraryManager.channelCB() != "touch") {
+                cfg.enabled = ${wcmmode.edit @ context="scriptString"};
+                CQ.undo.UndoManager.initialize(cfg);
+                CQ.Ext.onReady(function() {
+                    CQ.undo.UndoManager.detectCachedPage((new Date()).getTime());
+                });
+            }
+        })();
+
+        CQ.WCM.launchSidekick("${currentPage.path @ context='uri'}", {
+            propsDialog: "${wcmInit.dialogPath @ context='uri'}",
+            locked: ${currentPage.locked @ context="scriptString"}
+        });
+    </script>
+    <!--/* WCM initialization code end */-->
+
+    <div data-sly-include="css_clientlibs.html" data-sly-unwrap></div>
+    <div data-sly-test="${!wcmmode.disabled}">
+        <div data-sly-include="/libs/cq/cloudserviceconfigs/components/servicelibs/servicelibs.jsp" data-sly-unwrap></div>
+        <meta data-sly-call="${clientLib.all @ categories='cq.apps.targeting'}" data-sly-unwrap></meta>
+    </div>
+</head>

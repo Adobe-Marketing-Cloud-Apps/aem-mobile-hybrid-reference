@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <!-- ====================================================================== -->
+    <!-- P A R E N T P R O J E C T D E S C R I P T I O N -->
+    <!-- ====================================================================== -->
+    <parent>
+        <groupId>com.adobe.aem.app</groupId>
+        <artifactId>hybrid-reference-app</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../</relativePath>
+    </parent>
+
+    <!-- ====================================================================== -->
+    <!-- P R O J E C T D E S C R I P T I O N                                    -->
+    <!-- ====================================================================== -->
+
+    <artifactId>hybrid-reference-app-content-shell</artifactId>
+    <packaging>content-package</packaging>
+    <name>Hybrid Reference App - Content Shell</name>
+    <description>Hybrid Reference App - Shell Package</description>
+
+    <!-- ====================================================================== -->
+    <!-- P R O P E R T I E S                                                    -->
+    <!-- ====================================================================== -->
+    <properties>
+        <crx.host>localhost</crx.host>
+        <crx.port>4502</crx.port>
+        <publish.crx.host>localhost</publish.crx.host>
+        <publish.crx.port>4503</publish.crx.port>
+        <publish.crx.username>admin</publish.crx.username>
+        <publish.crx.password>admin</publish.crx.password>
+
+        <phonegap.path>/content/mobileapps/hybrid-reference-app/shell/_jcr_content/pge-app/app-content/phonegap/hybrid-app</phonegap.path>
+        <ionic.app.dir>${basedir}/../../hybrid-app</ionic.app.dir>
+        <content.build.dir>${project.build.directory}/vault-work/jcr_root${phonegap.path}</content.build.dir>
+
+    </properties>
+
+    <!-- ====================================================================== -->
+    <!-- B U I L D                                                              -->
+    <!-- ====================================================================== -->
+    <build>
+        <resources>
+            <!-- define the resources that will go into the package -->
+            <resource>
+                <!--
+                    we want to keep some of the META-INF files and not configure
+                    everything in the plugin.
+                -->
+                <directory>src/main/content/META-INF</directory>
+                <targetPath>${project.build.directory}/vault-work/META-INF</targetPath>
+            </resource>
+
+            <!-- include package sources -->
+            <resource>
+                <directory>src/main/content/jcr_root</directory>
+                <excludes>
+                    <!-- exclude .vlt control files in the package -->
+                    <exclude>**/.vlt</exclude>
+                    <exclude>**/.vltignore</exclude>
+                    <exclude>**/.gitignore</exclude>
+                </excludes>
+            </resource>
+
+            <!-- Ionic App -->
+            <resource>
+                <directory>${ionic.app.dir}</directory>
+                <targetPath>${content.build.dir}</targetPath>
+                <includes>
+                    <include>.*</include>
+                    <include>*.xml</include>
+                    <include>*.project</include>
+                    <include>*.json</include>
+                    <include>res/**</include>
+                    <include>scripts/**</include>
+                    <include>scss/**</include>
+                    <include>www/**</include>
+                </includes>
+                <excludes>
+                    <exclude>*.zip</exclude>
+                </excludes>
+            </resource>
+
+        </resources>
+
+        <plugins>
+
+            <plugin>
+                <groupId>com.day.jcr.vault</groupId>
+                <artifactId>content-package-maven-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <group>adobe</group>
+                    <filterSource>src/main/content/META-INF/vault/filter.xml</filterSource>
+                    <targetURL>http://${crx.host}:${crx.port}/crx/packmgr/service.jsp</targetURL>
+                    <properties>
+                        <acHandling>overwrite</acHandling>
+                    </properties>
+                </configuration>
+            </plugin>
+
+        </plugins>
+
+    </build>
+
+    <profiles>
+        <profile>
+            <id>autoInstallProduction</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.day.jcr.vault</groupId>
+                        <artifactId>content-package-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>install-content-package</id>
+                                <phase>install</phase>
+                                <goals>
+                                    <goal>install</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+
+</project>

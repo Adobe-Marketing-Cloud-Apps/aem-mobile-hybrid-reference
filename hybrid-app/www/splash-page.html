@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <script src="cordova.js"></script>
+    <script src="lib/mobileapps/content-sync-2.js"></script>
+  </head>
+
+  <body>
+    <script>
+      // Redirect to the following path once init has finished
+      var successRedirectPath = '/home.html';
+
+      var initializationComplete = function(error, localContentPath) {
+          if (error) {
+              return console.error("ContentSync init error: " + error);
+          }
+
+          // App was successfully initialized. Redirect to the new local content path.
+          console.log("ContentSync success. Returned path: [" + localContentPath + "]");
+          return window.location.href = localContentPath + successRedirectPath;
+      };
+
+      var initializeApplication = function() {
+          var contentInitializer = CQ.mobile.contentInit({
+              id: 'starter'
+          });
+          contentInitializer.initializeApplication(initializationComplete);
+      };
+
+      // Begin initialization once Cordova bridge is ready
+      document.addEventListener('deviceready', initializeApplication, false)
+    </script>
+  </body>
+</html>

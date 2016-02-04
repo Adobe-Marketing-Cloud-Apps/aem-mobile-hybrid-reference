@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:description=""
+    jcr:primaryType="cq:Template"
+    jcr:title="Location Page"
+    allowedPaths="[/content/mobileapps/hybrid-reference-app/en/welcome/locations]"
+    ranking="{Long}0">
+    <jcr:content
+        cq:designPath="/etc/designs/phonegap/hybrid-reference-app"
+        jcr:primaryType="cq:PageContent"
+        sling:resourceType="hybrid-reference-app/components/location">
+        <cards jcr:primaryType="nt:unstructured">
+            <img1
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/image"/>
+            <img2
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/image"/>
+            <img3
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/image"/>
+        </cards>
+        <subtext jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

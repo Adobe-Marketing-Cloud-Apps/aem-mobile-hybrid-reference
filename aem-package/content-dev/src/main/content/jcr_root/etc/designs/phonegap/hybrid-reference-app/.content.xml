@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <clientlibsall/>
+    <jcr:content
+        cq:lastModified="{Date}2015-10-16T14:00:22.199-04:00"
+        cq:lastModifiedBy="admin"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="hybrid-reference-app App Design"
+        sling:resourceType="wcm/core/components/designer">
+        <ionic-app-page jcr:primaryType="nt:unstructured">
+            <content-par
+                    jcr:lastModified="{Date}2015-10-16T14:00:22.197-04:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="foundation/components/parsys"
+                    components="[/libs/foundation/components/text,group:Adobe Hybrid App,/libs/mobileapps/components/image,/libs/mobileapps/components/mobilevideo,/libs/mobileapps/components/reviews,/libs/mobileapps/components/reviewsummary]">
+                <section jcr:primaryType="nt:unstructured"/>
+            </content-par>
+        </ionic-app-page>
+        <welcome-page jcr:primaryType="nt:unstructured">
+            <content-par
+                jcr:lastModified="{Date}2015-10-16T14:00:22.197-04:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/parsys"
+                components="[/libs/foundation/components/text,/libs/mobileapps/components/image,/apps/hybrid-reference-app/components/ionic-list]">
+                <section jcr:primaryType="nt:unstructured"/>
+            </content-par>
+        </welcome-page>
+    </jcr:content>
+    <clientlibs-author/>
+</jcr:root>

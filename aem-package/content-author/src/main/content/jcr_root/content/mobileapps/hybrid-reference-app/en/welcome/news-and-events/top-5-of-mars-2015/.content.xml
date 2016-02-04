@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:designPath="/etc/designs/phonegap/hybrid-reference-app"
+        cq:lastModified="{Date}2015-10-23T12:51:06.761-04:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/apps/hybrid-reference-app/templates/ionic-app-news-page-item"
+        jcr:description="Top 5 announcements at this year's MARS."
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Montreal Advanced Research Show 2015"
+        sling:resourceType="hybrid-reference-app/components/ionic-app-news-item-page">
+        <image
+            jcr:lastModified="{Date}2015-10-23T12:51:06.756-04:00"
+            jcr:lastModifiedBy="admin"
+            jcr:primaryType="nt:unstructured"
+            fileReference="/content/dam/mobileapps/hybrid-reference-app/page-images/news/unsplash_kwXby58kRSo.jpeg"
+            imageRotate="0"/>
+    </jcr:content>
+</jcr:root>

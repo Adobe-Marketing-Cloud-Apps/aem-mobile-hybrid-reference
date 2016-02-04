@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:description="Template for creating pages for your Ionic App"
+    jcr:primaryType="cq:Template"
+    jcr:title="Ionic App Page - Black Background"
+    allowedPaths="[/content/mobileapps(/.*)?]"
+    ranking="{Long}0">
+    <jcr:content
+        cq:designPath="/etc/designs/phonegap/hybrid-reference-app"
+        jcr:primaryType="cq:PageContent"
+        sling:resourceType="hybrid-reference-app/components/ionic-app-news-page"/>
+</jcr:root>

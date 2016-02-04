@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:allowedTemplates="[/apps/hybrid-reference-app/templates/ionic-app-page,/apps/hybrid-reference-app/templates/ionic-app-location-page,/apps/hybrid-reference-app/templates/ionic-app-news-page]"
+        cq:designPath="/etc/designs/phonegap/hybrid-reference-app"
+        jcr:language="en"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="English"
+        pge-type="[app-content]"
+        phonegap-exportTemplate="/content/mobileapps/hybrid-reference-app/en/jcr:content/pge-app/app-config">
+        <pge-app jcr:primaryType="nt:unstructured">
+            <app-config/>
+            <app-config-dev/>
+        </pge-app>
+        <image
+            jcr:lastModified="{Date}2015-10-16T14:45:27.396-04:00"
+            jcr:lastModifiedBy="admin"
+            jcr:primaryType="nt:unstructured">
+            <file/>
+        </image>
+    </jcr:content>
+    <welcome/>
+</jcr:root>

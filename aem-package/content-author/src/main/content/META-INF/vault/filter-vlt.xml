@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/content/mobileapps/hybrid-reference-app">
+        <include pattern="/content/mobileapps/hybrid-reference-app/en(/.*)?"/>
+    </filter>
+    <filter root="/content/dam/mobileapps/hybrid-reference-app/page-images">
+        <exclude pattern="/content/dam/mobileapps/hybrid-reference-app/page-images(/.*/)+cq5dam(.*)+"/>
+    </filter>
+    <filter root="/etc/hybrid-reference-app"/>
+</workspaceFilter>

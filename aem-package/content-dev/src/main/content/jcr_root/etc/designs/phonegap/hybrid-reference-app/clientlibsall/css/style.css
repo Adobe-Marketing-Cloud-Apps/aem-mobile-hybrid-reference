@@ -1,0 +1,21 @@
+
+
+* {
+	color: rgb(97, 102, 102);
+}
+
+.loginLink {
+
+    text-align: center;
+    padding-top: 5rem;
+}
+
+div.loginLink a {
+	text-decoration: none;
+}
+
+.welcomeLogo {
+
+    padding: 3rem;
+    width: 30px;
+}

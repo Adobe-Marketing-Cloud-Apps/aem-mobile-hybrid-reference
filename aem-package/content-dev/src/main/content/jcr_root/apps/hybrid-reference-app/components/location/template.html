@@ -1,0 +1,34 @@
+<div data-sly-use.locationHelper="${ 'com.adobe.ionicapp.sly.LocationHelper' @ page=resourcePage }" data-sly-unwrap>
+    <ion-view view-title="${properties.jcr:title}">
+        <ion-content>
+            <div class="list card">
+
+                <div class="item item-avatar">
+                    <h2>${properties.jcr:title}</h2>
+                    <p>${locationHelper.address}</p>
+                    <div data-sly-resource="${ @path='subtext', resourceType='foundation/components/text' }"></div>
+                </div>
+
+                <div class="item item-body">
+                    <div data-sly-resource="${ @path='hero', resourceType='foundation/components/image' }"></div>
+                    <p>${properties.jcr:description}</p>
+                    <div data-sly-resource="${ @path='content-par', resourceType='foundation/components/parsys' }" data-sly-unwrap></div>
+                </div>
+
+                <div class="item tabs tabs-secondary tabs-icon-left">
+                    <a class="tab-item" ng-click="phone($event, '${locationHelper.phone}')">
+                        <i class="icon ion-ios-telephone"></i>
+                    </a>
+                    <a class="tab-item" ng-click="showMap($event, '${locationHelper.address}')">
+                        <i class="icon ion-ios-navigate"></i>
+                    </a>
+                    <a class="tab-item" ng-click="shareMapLink($event, '${locationHelper.latitude}', '${locationHelper.longitude}')">
+                        <i class="icon ion-share"></i>
+                    </a>
+                </div>
+
+            </div>
+        </ion-content>
+    </ion-view>
+</div>
+

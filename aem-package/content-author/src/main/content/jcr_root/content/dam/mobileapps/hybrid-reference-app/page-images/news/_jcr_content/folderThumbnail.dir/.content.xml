@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:dam="http://www.day.com/dam/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:file">
+    <jcr:content
+        dam:folderThumbnailPaths="[/content/dam/mobileapps/hybrid-reference-app/news/unsplash_94taEmdowRw.jpg,/content/dam/mobileapps/hybrid-reference-app/news/unsplash_6b4LAsSMvjk.jpeg,/content/dam/mobileapps/hybrid-reference-app/news/unsplash_kwXby58kRSo.jpeg]"
+        jcr:primaryType="nt:unstructured"
+        bgcolor="{Long}-1"
+        height="{Long}140"
+        width="{Long}240"/>
+</jcr:root>

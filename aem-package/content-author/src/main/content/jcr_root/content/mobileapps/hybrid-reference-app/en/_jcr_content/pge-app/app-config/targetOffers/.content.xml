@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    deep="{Boolean}true"
+    extension="html"
+    includedPageTypes="[cq/personalization/components/teaserpage,cq/personalization/components/offerproxy]"
+    includeImages="{Boolean}true"
+    locationRoot="[/content/mobileapps/hybrid-reference-app]"
+    path=""
+    selector="tandt"
+    targetRootDirectory="www"
+    type="mobileappoffers">
+    <rewrite
+        jcr:primaryType="nt:unstructured"
+        relativeParentPath="/"/>
+</jcr:root>

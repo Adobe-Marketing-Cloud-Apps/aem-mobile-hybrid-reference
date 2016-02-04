@@ -1,0 +1,36 @@
+
+  <ion-modal-view class="login-Modal">
+
+    <ion-content>
+
+      <div class="col text-center login-Auth-title">
+        <h2>Sign in</h2>
+        <p>Login to Adobe Experience Manager</p>
+      </div>
+      <form ng-submit="doBasicLogin()">
+        <div class="list">
+            <input type="text" placeholder="User Name" ng-model="loginData.username" value="jdoe@geometrixx.info">
+            <input type="password" placeholder="Password" ng-model="loginData.password" value="jdoe">
+        </div>
+
+        <div class="col text-center">
+          <button class="button button-clear button-positive" type="submit">Sign in</button>
+          <p ng-show='errorMessage'>{{errorMessage}}</p>
+        </div>
+      </form>
+      <div class="login-Auth-oauth">
+          <button class="button button-clear icon" ng-click="doOAuthLogin()">
+              <i class="icon-login cui-aem"></i>
+          </button>
+          <button class="button button-clear">
+              <i class="icon-login ion-social-linkedin"></i>
+          </button>
+          <button class="button button-clear">
+              <i class="icon-login ion-social-twitter"></i>
+          </button>
+      </div>
+      <div class="login-Modal-close hide-on-keyboard-open" ng-click="closeLogin()">TAP TO CLOSE</div>
+
+    </ion-content>
+
+  </ion-modal-view>

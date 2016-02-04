@@ -1,0 +1,11 @@
+img {
+    max-width: 100%;
+}
+
+div.text, div.image {
+    text-align: center;
+}
+
+div.text p {
+    margin: 0 25%;
+}

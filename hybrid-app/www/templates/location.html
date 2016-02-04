@@ -1,0 +1,43 @@
+<ion-view title="Location">
+    <ion-content class="location" scroll="false">
+
+        <div id="map_canvas">
+        </div>
+
+        <div class="locationlist">
+                <ion-scroll>
+                    <ion-list ng-controller="LocationCtrl">
+                        <ion-item ng-repeat="location in locationlist">
+                            <div class="locationcard">
+                                <div ng-click="moveMapTo({{location}})">
+                                    <div class="cardimagecontainer">
+                                        <ion-slide-box>
+                                            <ion-slide>
+                                                <img ng-src="{{location.imgUrl1}}" class="cardimage">
+                                            </ion-slide>
+                                            <ion-slide>
+                                                <img ng-src="{{location.imgUrl2}}" class="cardimage">
+                                            </ion-slide>
+                                            <ion-slide>
+                                                <img ng-src="{{location.imgUrl3}}" class="cardimage">
+                                            </ion-slide>
+                                        </ion-slide-box>
+                                    </div>
+                                    <div class="locationInfo">
+                                        <h3>{{location.title}}</h3>
+                                        <p>{{location.address}}</p>
+                                    </div>
+                                </div>
+
+                                <a class="locationDetails" href="#/app/location/details/{{location.detailsUrl}}">
+                                    <b>Details</b>
+                                </a>
+                                </a>
+                            </div>
+                        </ion-item>
+                    </ion-list>
+                </ion-scroll>
+            </div>
+
+    </ion-content>
+</ion-view>

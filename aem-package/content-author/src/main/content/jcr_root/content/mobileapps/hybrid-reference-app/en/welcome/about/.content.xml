@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:designPath="/etc/designs/phonegap/hybrid-reference-app"
+        cq:lastModified="{Date}2015-11-06T13:47:21.515-05:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/apps/hybrid-reference-app/templates/ionic-app-page"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="About"
+        sling:resourceType="hybrid-reference-app/components/ionic-app-page">
+        <content-par
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="foundation/components/parsys">
+            <text
+                jcr:created="{Date}2015-10-16T14:02:03.410-04:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2015-11-06T13:47:21.512-05:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/text"
+                text="&lt;p>Built with these great Adobe Marketing Cloud technologies:&lt;/p>&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xa;"
+                textIsRich="true"/>
+            <image
+                jcr:created="{Date}2015-10-16T11:10:35.265-04:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2015-10-16T11:10:51.572-04:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="mobileapps/components/image"
+                fileReference="/content/dam/mobileapps/hybrid-reference-app/page-images/about-pic.png"/>
+            <text_1486357462
+                jcr:created="{Date}2015-10-16T14:02:46.380-04:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2015-10-16T14:03:01.995-04:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/text"
+                text="&lt;p>Powered by Adobe Experience Manager&lt;/p>"
+                textIsRich="true"/>
+        </content-par>
+    </jcr:content>
+</jcr:root>

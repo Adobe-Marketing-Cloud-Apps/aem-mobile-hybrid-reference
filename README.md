@@ -1,0 +1,95 @@
+# AEM – mobile: _hybrid reference app_
+
+This is a basic AEM Mobile Hybrid reference application authored using [Ionic Framework](ionicframework.com).
+
+It includes:
+
+1. Mobile application written in Ionic [ionicframework.com](ionicframework.com)
+2. ContentSync OTA updates
+3. Basic authentication
+4. Extensions to add authorable pages for: locations, events, and about us.
+5. Native device feature support with: location services, beacons, camera, accelerometer, file system, file transfer and, vibration.
+
+## Minimum requirements for development
+
+1. Maven (tested: Apache Maven `3.2.2`)
+2. Git (tested: git version `2.3.2`)
+3. xCode (tested: `6.4`)
+4. Cordova (tested: `5.3.3`)
+5. [node.js](http://nodejs.org/) version `>=0.12.x`
+6. AEM 6.1 + FP3 or AEM 6.2 beta
+
+## Getting Started
+
+Clone this repository to your machine to begin.
+
+This repository consists of a [hybrid app](hybrid-app) built using the [Ionic Framework](ionicframework.com) and an associated [AEM Package](aem-package) that will enable authoring once installed to an AEM instance.
+
+# Demo
+
+## Create Hybrid App Archive
+
+A script is available that will create an archive of the app or you can use any ZIP creation tool of your choosing.
+
+    cd aem-mobile-hybrid-reference/hybrid-app
+    npm install
+    npm run zip
+
+## Import Hybrid App into AEM
+
+1. Drag and drop archive onto AEM 6.1 FP3 [Apps admin console](http://localhost:4502/aem/apps.html/content/phonegap)
+1. Configure your [dashboard](http://localhost:4502/libs/mobileapps/admin/content/dashboard.html/content/mobileapps/hybrid-reference-app/shell) with analytics, push and phonegap build support
+1. Create, read, update and, delete (CRUD) app pages
+1. Publish updates OTA with ContentSync
+1. Open [AEM Mobile Verify](https://itunes.apple.com/us/app/phonegap-enterprise/id924780940?ls=1&mt=8) to view your app
+
+## Install AEM Package
+
+    cd aem-mobile-hybrid-reference/aem-package
+    mvn -PautoInstallPackage clean install
+
+NOTE: If you are installing the packages manually you need to install content-dev first.
+
+NOTE: For logout, user profile creation and update, the packages must be installed on the publisher.
+
+    mvn -PautoInstallPackagePublish clean install
+
+## Edit in AEM
+
+Once built and installed via maven, your hybrid app should be editable in AEM.
+
+The [dashbaord](http://localhost:4502/libs/mobileapps/admin/content/dashboard.html/content/mobileapps/hybrid-reference-app/shell) for the app that was previously added will
+now contain a new entry called *English* under the *Manage Content* section.
+
+If you followed the instructions correctly and have your author instance running locally on `:4502`, you should be able to author the hybrid app that was previously added via the following link:
+[http://localhost:4502/editor.html/content/mobileapps/hybrid-reference-app/en/about.html](http://localhost:4502/editor.html/content/mobileapps/hybrid-reference-app/en/about.html)
+
+# Production
+
+When deploying an existing hybrid app for production it should be wrapped in an AEM package to simplify versioning and deployment.
+An additional content package is included with this sample which will wrap the existing ionic app into the correct JCR structure.
+Undesireable results may occur when installing this package to a server instance that previously imported the app via drag and drop.
+
+    cd aem-mobile-hybrid-reference/aem-package
+    mvn -PautoInstallProduction clean install
+
+# Build Hybrid App
+
+Building the hybrid app can be completed entirely from the command line.
+
+First ensure your script dependencies are up-to-date.
+
+    cd aem-mobile-hybrid-reference/hybrid-app
+    npm install
+
+## Merge Authored Content
+
+This method would generally be used by the ionic developer to test the app with authored content.
+
+NOTE:  Default AEM server is http://localhost:4502 with credentials admin:admin.  Modify scripts/fetch.sh if needed.
+
+Content being managed by AEM will be automatically merged into the hybrid app during the Cordova build process when the `--aem-merge` argument is provided.
+
+    cd aem-mobile-hybrid-reference/hybrid-app
+    cordova platform add ios
+    cordova run ios --emulator --aem-merge

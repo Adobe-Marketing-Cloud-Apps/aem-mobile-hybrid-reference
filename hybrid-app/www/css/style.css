@@ -1,0 +1,377 @@
+/* Empty. Add your own CSS if you like */
+@charset "UTF-8";
+
+/* Simple fluid media
+   Note: Fluid media requires that you remove the media's height and width attributes from the HTML
+   http://www.alistapart.com/articles/fluid-images/ 
+*/
+
+img, object, embed, video {
+  max-width: 100%;
+}
+
+body {
+  cursor: url('http://ionicframework.com/img/finger.png'), auto;
+  background: #E3E3E3;
+}
+
+div.page-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  margin-top: 200px; /* Half the height */
+  margin-left: -50px; /* Half the width */
+}
+
+#linear-gradient {
+  background: -webkit-linear-gradient(#fff, #999999); /*Safari 5.1-6*/
+  background: -o-linear-gradient(#fff, #999999); /*Opera 11.1-12*/
+  background: -moz-linear-gradient(#fff, #999999); /*Fx 3.6-15*/
+  background: linear-gradient(#fff, #999999); /*Standard*/
+}
+
+.button.ng-hide{
+  display:none;
+}
+
+.connectmessage {
+    margin-top: 5rem;
+    text-align: center;
+}
+
+
+.scroll-view {
+    height: 100%;
+}
+
+/* Placeholder Template Styles */
+.placeholder {
+    margin-top: 50%;
+    margin-bottom: 50%;
+}
+.placeholder h3 {
+    color: #999999;    
+}
+
+/* ################ */
+/* Title Bar Style  */
+/* ################ */
+
+.bar-header .title {
+    color: #777777;
+}
+
+/* ################## */
+/* Fly out menu style */
+/* ################## */
+
+/* Push menu down below header image */
+.menu-left .scroll-content {
+    top: 200px !important;
+}
+
+.menu-left .item {
+    border-color: #fff;
+}
+
+.menu-left .list {
+    padding-top: 10px;
+    font-family: Montserrat, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+
+.menu-left .item-divider {
+    height: 1px;
+    padding: 0;
+    min-height: 3px;
+    background: #f1f1f1;
+    margin: 10px;
+}
+
+.menu-left .bar-header {
+    min-height: 200px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+}
+
+.menu-left { }
+
+.menu-left .scroll-content { }
+
+.avatar {
+    width:150px;
+    height:150px;
+    margin: 10px;
+    border:5px solid #F5F5F5;
+    border-radius: 500px;
+    -webkit-border-radius: 500px;
+    -moz-border-radius: 500px;
+}
+
+/* ################## */
+/*   Login style      */
+/* ################## */
+
+.login-Modal .scroll {
+    height: 100%;
+}
+
+.login-Modal, .login-Modal h1,
+.login-Modal h2, .login-Modal h3,
+.login-Modal input[type=text],
+.login-Modal input[type=password],
+.login-Modal .button.button-positive.button-clear {
+    color: #777777;
+}
+
+.login-Modal input[type=text],
+.login-Modal input[type=password] {
+    margin-top: 1rem;
+    margin-right: auto;
+    margin-left: auto;
+    border: 1px solid #999999;
+    padding: 0.5rem;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+}
+
+.login-Auth-title {
+    padding-top: 5rem;
+}
+
+.login-Auth-oauth {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.login-Auth-oauth button {
+    display: table-cell;
+}
+
+.login-Modal-close {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 2rem;
+    color: #777777;
+}
+
+.icon-login {
+    font-size: 2.5rem;
+}
+
+/* ################## */
+/* Locations style    */
+/* ################## */
+
+#map_canvas {
+    height: 45%;
+    width: 100%;
+}
+
+.locationlist {
+    height: 55%;
+}
+
+.locationlist .item {
+    padding: 0.25rem;
+    margin: 0.25rem;
+    border: solid 1px #D9D9D9;
+}
+
+.cardimagecontainer {
+    max-height:10rem;
+    overflow:hidden;
+}
+
+.location .cardimage {
+    width: 100%;
+}
+
+.location .locationHeart {
+    float: left;
+    margin-right: 0.25rem;
+    padding-top: 1rem;
+}
+
+.locationHeart i{
+    font-size: 1.5rem;
+}
+
+.locationDetails {
+    color: #FFFFFF;
+    white-space: nowrap;
+    background: #777777;
+    display: inline;
+    float: right;
+    padding: 0.7rem;
+    margin-top: 0.25rem;
+    text-decoration: none;
+}
+
+.locationDetails b {
+    color: #FFFFFF;
+}
+
+.locationInfo {
+    float: left;
+    padding-top: 0.65rem;
+}
+
+.locationInfo h3 {
+    margin-bottom: 0;
+}
+
+.locationInfo p {
+    color: #000000;
+    font-size: small;
+}
+
+.cq-image-placeholder {
+    display: none;
+}
+
+/* ################################# */
+/* IoT awesome page */
+/* ################################# */
+
+.h2-hat {
+  font-family: "HNCondensedLight", "Arial Narrow", sans-serif;
+  text-transform: uppercase;
+  font-size: 18px;
+  color: #999999;
+  padding: 15px 0 10px 0; 
+}
+
+.img-hat { 
+  width: 153px;
+  max-width: 100%;
+  display: block;
+}
+
+.hat-btn {
+  display: block;
+  width:206px; 
+  height:206px;
+  margin: 0 auto;
+  background: url("../img/hat/call-button.png") no-repeat 0 0;
+  background-size: 100% auto;
+  -webkit-tap-highlight-color: transparent;
+  
+  /* set the border-radius at half the size of the width and height */
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  border-radius: 100px;
+
+  /* give the button a small drop shadow */
+  -webkit-box-shadow: 0 0 10px rgba(0,0,0, .75);
+  -moz-box-shadow: 0 0 10px rgba(0,0,0, .75);
+  box-shadow: 2px 2px 15px rgba(0,0,0, .75);
+}
+
+/* NOW STYLE THE BUTTON'S HOVER STATE */
+.hat-btn:hover{
+
+  outline: none;
+  border: none;
+  background-position: 0 -206px;
+}
+
+/* Marquee text */
+.marquee {
+    width: 450px;
+    margin: 0 auto;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    animation: marquee 30s linear infinite;
+}
+
+.marquee:hover {
+  animation-play-state: paused
+}
+
+/* Make it move */
+@keyframes marquee {
+    0%   { text-indent: 30em }
+    100% { text-indent: -105em }
+}
+
+/* ################## */
+/* Profile Style      */
+/* ################## */
+
+.profile-image {
+    float: left;
+    margin-right: 0.5rem;
+}
+
+.profile-image img {
+    height: 5rem;
+    width: 5rem;
+    margin: 0;
+}
+
+.profile-no-image-placeholder {
+    color: #777777;
+    border: solid 1px #777777;
+    border-radius: 5px;
+    padding: 0.5rem;
+    text-align: center;
+    width: 5rem;
+    height: 5rem;
+}
+
+.profile input {
+    border: solid 1px #777777;
+    border-radius: 5px;
+    color: #777777;
+    margin-bottom: 0.75rem;
+    padding: 0.5rem;
+}
+
+.profile-top-section, .profile-bottom-section {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    margin: auto;
+    width: 20rem;
+}
+
+.profile-top-section {
+    margin-top: 25%;
+}
+
+.profile-user-names input {
+    width: 13.5rem;
+}
+
+.profile-bottom-section {
+    clear: both;
+}
+
+.profile-save {
+    position: absolute;
+    bottom: 0;
+}
+
+.profile-bottom-section input {
+    width: 100%;
+}
+
+.profile button {
+    width: 100%;
+    background-color: #777777;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 0;
+}
+
+.profile-success-message, .profile-error-message {
+    width: 19.27rem;
+    text-align: center;
+    margin: auto auto;
+    color: #777777;
+}

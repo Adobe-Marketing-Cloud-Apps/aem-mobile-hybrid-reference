@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:designPath="/etc/designs/phonegap/hybrid-reference-app"
+        cq:lastModified="{Date}2015-10-23T12:52:19.917-04:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/apps/hybrid-reference-app/templates/ionic-app-news-page-item"
+        jcr:description="We are opening a new location in Toronto. Come see us on 123 Main St. on December 13th."
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Grand Opening - Toronto"
+        sling:resourceType="hybrid-reference-app/components/ionic-app-news-item-page">
+        <image
+            jcr:lastModified="{Date}2015-10-23T12:52:19.912-04:00"
+            jcr:lastModifiedBy="admin"
+            jcr:primaryType="nt:unstructured"
+            fileReference="/content/dam/mobileapps/hybrid-reference-app/page-images/news/unsplash_6b4LAsSMvjk.jpeg"
+            imageRotate="0"/>
+    </jcr:content>
+</jcr:root>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:designPath="/etc/designs/phonegap/hybrid-reference-app"
+        cq:lastModified="{Date}2015-11-04T12:48:20.007-05:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/apps/hybrid-reference-app/templates/location"
+        jcr:lastModified="{Date}2015-11-04T12:48:20.004-05:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="San Francisco"
+        sling:resourceType="hybrid-reference-app/components/location"
+        location="/etc/hybrid-reference-app/locationdata/locations/sanfrancisco">
+        <image
+            jcr:lastModified="{Date}2015-11-04T12:16:43.624-05:00"
+            jcr:lastModifiedBy="admin"
+            jcr:primaryType="nt:unstructured"
+            fileReference="/content/dam/mobileapps/hybrid-reference-app/page-images/locations/sanfrancisco/corp_a_sf02_0509.png"/>
+        <cards jcr:primaryType="nt:unstructured">
+            <img1
+                jcr:lastModified="{Date}2015-11-02T11:52:16.830-05:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/image"
+                fileReference="/content/dam/mobileapps/hybrid-reference-app/page-images/locations/sanfrancisco/corp_a_sf02_0509.png"/>
+            <img2
+                jcr:lastModified="{Date}2015-11-02T11:52:29.072-05:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/image"
+                fileReference="/content/dam/mobileapps/hybrid-reference-app/page-images/locations/sanfrancisco/corp_p_ethaneismann_0908.jpeg"/>
+            <img3
+                jcr:lastModified="{Date}2015-11-02T11:52:35.692-05:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/image"
+                fileReference="/content/dam/mobileapps/hybrid-reference-app/page-images/locations/sanfrancisco/corp_a_sf12_0509.png"/>
+        </cards>
+        <subtext jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/content/mobileapps/hybrid-reference-app">
+        <exclude pattern="/content/mobileapps/hybrid-reference-app(/.*)?"/>
+        <include pattern="/content/mobileapps/hybrid-reference-app/jcr:content"/>
+        <include pattern="/content/mobileapps/hybrid-reference-app/shell(/.*)?"/>
+    </filter>
+    <filter root="/content/dam/mobileapps/hybrid-reference-app/icon">
+        <exclude pattern="/content/dam/mobileapps/hybrid-reference-app/icon(/.*/)+cq5dam(.*)+"/>
+    </filter>
+    <filter root="/apps/hybrid-reference-app"/>
+    <filter root="/apps/foundation/components"/>
+    <filter root="/etc/designs/phonegap/hybrid-reference-app"/>
+    <filter root="/etc/clientlibs/adobe/ionic-1.1.0"/>
+    <filter root="/home">
+        <exclude pattern="/home(/.*)?"/>
+        <include pattern="/home/rep:policy"/>
+    </filter>
+    <filter root="/home/users/system/ionic-app-profile-service"/>
+</workspaceFilter>

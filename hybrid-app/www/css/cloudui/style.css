@@ -1,0 +1,27 @@
+@font-face {
+	font-family: 'cloudui';
+	src:url('fonts/cloudui.eot?-ei8uo2');
+	src:url('fonts/cloudui.eot?#iefix-ei8uo2') format('embedded-opentype'),
+		url('fonts/cloudui.woff?-ei8uo2') format('woff'),
+		url('fonts/cloudui.ttf?-ei8uo2') format('truetype'),
+		url('fonts/cloudui.svg?-ei8uo2#cloudui') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="cui-"], [class*=" cui-"] {
+	font-family: 'cloudui';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}/**/
+
+.cui-aem:before {
+	content: "\e600";
+}

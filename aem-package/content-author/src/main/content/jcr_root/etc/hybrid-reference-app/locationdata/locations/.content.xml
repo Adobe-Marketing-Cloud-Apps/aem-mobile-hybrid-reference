@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    sling:resourceType="cq/address/location/group">
+    <sanjose
+        jcr:description="Adobe Worldwide Headquarters"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="San Jose"
+        city="San Jose"
+        hours="[Monday|9:00 - 5:00,Tuesday|9:00 - 5:00,Wednesday|9:00 - 5:00,Thursday|9:00 - 5:00,Friday|9:00 - 5:00,Saturday|10:00 - 6:00,Sunday|Closed]"
+        latitude="{Double}37.33065550000001"
+        longitude="{Double}-121.8939681"
+        phone="14085551212"
+        state="CA"
+        street1="345 Park Avenue"/>
+    <ottawa
+        jcr:description="Adobe Canadian Headquarters"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Ottawa"
+        city="Ottawa"
+        hours="[Monday|9:00 - 5:00,Tuesday|9:00 - 5:00,Wednesday|9:00 - 5:00,Thursday|9:00 - 5:00,Friday|9:00 - 5:00,Saturday|10:00 - 6:00,Sunday|Closed]"
+        latitude="{Double}45.4024491"
+        longitude="{Double}-75.710489"
+        phone="16135551212"
+        state="ON"
+        street1="343 Preston St."/>
+    <lehi
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Lehi"
+        city="Lehi"
+        hours="[Monday|9:00 - 5:00,Tuesday|9:00 - 5:00,Wednesday|9:00 - 5:00,Thursday|9:00 - 5:00,Friday|9:00 - 5:00,Saturday|10:00 - 6:00,Sunday|Closed]"
+        latitude="{Double}40.4357305"
+        longitude="{Double}-111.8916271"
+        phone="18015551212"
+        state="UT"
+        street1="3900 Adobe Way"
+        zip="84043"/>
+    <sanfrancisco
+        jcr:primaryType="nt:unstructured"
+        jcr:title="San Francisco"
+        city="San Francisco"
+        hours="[Monday|9:00 - 5:00,Tuesday|9:00 - 5:00,Wednesday|9:00 - 5:00,Thursday|9:00 - 5:00,Friday|9:00 - 5:00,Saturday|10:00 - 6:00,Sunday|Closed]"
+        latitude="{Double}37.7714605"
+        longitude="{Double}-122.4021046"
+        phone="415-832-2000"
+        state="CA"
+        street1="601 Townsend Street"
+        zip="94103"/>
+</jcr:root>

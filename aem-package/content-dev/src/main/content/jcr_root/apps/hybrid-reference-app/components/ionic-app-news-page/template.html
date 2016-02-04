@@ -1,0 +1,9 @@
+<div data-sly-use.newsHelper="${ 'com.adobe.ionicapp.sly.NewsHelper' @ page=resourcePage }" data-sly-unwrap>
+<ion-view view-title="${properties.jcr:title}">
+	<ion-content class="news" style="background-image: url('${newsHelper.backgroundPath @ context='html'}');">
+        <div class="articles">
+            <div data-sly-resource="${ @path='content-par', resourceType='foundation/components/parsys' }" data-sly-unwrap></div>
+        </div>
+    </ion-content>
+</ion-view>
+</div>

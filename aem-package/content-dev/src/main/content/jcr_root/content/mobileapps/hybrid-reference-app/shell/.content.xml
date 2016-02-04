@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Hybrid Reference App"
+        sling:resourceType="mobileapps/phonegap/components/instance"
+        phonegap-build-exportTemplate="./pge-app/HybridApp"
+        phonegap-build-exportTemplate-dev="./pge-app/HybridAppDev"
+        phonegap-exportTemplate="./pge-app/app-config">
+        <pge-app jcr:primaryType="nt:unstructured">
+            <app-content jcr:primaryType="nt:unstructured">
+                <phonegap/>
+            </app-content>
+            <app-config/>
+            <app-config-dev/>
+            <HybridApp/>
+            <HybridAppDev/>
+        </pge-app>
+        <widget jcr:primaryType="nt:unstructured">
+            <plugins jcr:primaryType="nt:unstructured">
+                <adobe-mobile-services
+                    jcr:primaryType="nt:unstructured"
+                    spec="4.7.0"/>
+            </plugins>
+            <icon
+                jcr:primaryType="nt:unstructured"
+                fileReference="/content/dam/mobileapps/hybrid-reference-app/icon/icon.png"/>
+        </widget>
+    </jcr:content>
+</jcr:root>

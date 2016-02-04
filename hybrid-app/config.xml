@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget cq:appName="hybrid-reference-app" id="com.adobe.aem.app.hybridreference" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>Hybrid Reference App</name>
+    <description>
+        Adobe Experience Manager – mobile Hybrid App Reference.
+
+        The intent of the reference app is to offer a clear separation of concerns for a development team to better understand how AEM hybrid mobile apps can be built.  The app contains a reference artchitecture and sample code on which to base your project.  In this case, we've used ionicframework.com for the mobile application development framework; however we could jave just as easily used straight angular.js or micro libraries to accomplish the same result.
+
+        The source code and readme are availble in github.com [1].
+
+        [1] https://github.com/Adobe-Marketing-Cloud-Apps/aem-mobile-hybrid-reference
+    </description>
+    <author href="http://adobe.com/">
+        AEM Mobile Engineering
+    </author>
+
+    <icon src="res/icons/icon.png" />
+    <content src="splash-page.html" />
+
+    <access origin="*" />
+
+    <preference name="phonegap-version" value="cli-5.2.0" />
+    <preference name="webviewbounce" value="false" />
+    <preference name="UIWebViewBounce" value="false" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="android-minSdkVersion" value="16" />
+    <preference name="BackupWebStorage" value="none" />
+
+    <preference name="android-build-tool" value="gradle" />
+    <feature name="StatusBar">
+        <param name="ios-package" onload="true" value="CDVStatusBar" />
+    </feature>
+
+    <plugin name="phonegap-plugin-contentsync" spec="~1.1.12" />
+    <plugin name="cordova-plugin-dialogs" spec="~1.1.1" />
+    <plugin name="ionic-plugin-keyboard" spec="~1.0.7" />
+    <plugin name="cordova-plugin-device" spec="^1.0.0" />
+    <plugin name="cordova-plugin-geolocation" spec="~2.0.0" />
+    <plugin name="cordova-plugin-inappbrowser" spec="~1.0.1" />
+    <plugin name="cordova-plugin-network-information" spec="~1.0.1" />
+    <plugin name="cordova-plugin-camera" spec="~2.0.0" />
+    <plugin name="cordova-plugin-file-transfer" spec="^1.0.0" />
+    <plugin name="cordova-plugin-x-socialsharing" spec="~5.0.7" />
+    <plugin name="cordova-plugin-whitelist" spec="~1.0.0" />
+    <hook src="scripts/merge-aem.js" type="before_prepare" />
+    <hook src="scripts/uninstall-app-ios-sim.js" type="before_run" />
+</widget>

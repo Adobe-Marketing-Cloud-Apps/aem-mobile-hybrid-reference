@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:exif="http://ns.adobe.com/exif/1.0/" xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:xmp="http://ns.adobe.com/xap/1.0/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="18f8cac5-3158-4f5b-88e3-4be131118597">
+    <jcr:content
+        cq:name="corp_a_basketball_court_0908.jpeg"
+        cq:parentPath="/content/dam/mobileapps/hybrid-reference-app/page-images/locations/sanjose"
+        jcr:lastModified="{Date}2015-11-09T16:06:52.774-05:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent">
+        <metadata
+            dam:Bitsperpixel="{Long}24"
+            dam:ColorSpace="{Long}-1"
+            dam:ExifOffset="{Long}222"
+            dam:extracted="{Date}2015-11-09T16:06:52.050-05:00"
+            dam:Fileformat="JPEG"
+            dam:MIMEtype="image/jpeg"
+            dam:Numberofimages="{Long}1"
+            dam:Numberoftextualcomments="{Long}0"
+            dam:Physicalheightindpi="{Long}-1"
+            dam:Physicalheightininches="{Decimal}-1.0"
+            dam:Physicalwidthindpi="{Long}-1"
+            dam:Physicalwidthininches="{Decimal}-1.0"
+            dam:Progressive="no"
+            dam:sha1="f180df91bbb1b50f9432ec1da3bfb9f06567da8a"
+            dam:size="{Long}378280"
+            dc:description="ÃÂ ÃÂ ÃÂ "
+            dc:format="image/jpeg"
+            dc:modified="{Date}2015-11-05T12:31:50.299-05:00"
+            dc:rights="Randi Lynn Beach Photography"
+            dc:title="Corp a basketball court 0908  (3597)"
+            exif:ExifImageLength="{Long}608"
+            exif:ExifImageWidth="{Long}1080"
+            exif:PixelXDimension="{Long}300"
+            exif:PixelYDimension="{Long}300"
+            jcr:lastModified="{Date}2015-11-09T16:06:51.041-05:00"
+            jcr:lastModifiedBy="admin"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"
+            jcr:title="Corp a basketball court 0908  (3597)"
+            tiff:ImageLength="{Long}608"
+            tiff:ImageWidth="{Long}1080"
+            tiff:Orientation="{Long}1"
+            tiff:ResolutionUnit="{Long}2"
+            tiff:XResolution="300"
+            tiff:YResolution="300"
+            xmp:CreatorTool="Adobe Photoshop Lightroom"
+            xmp:ModifyDate="{Date}2008-10-01T18:56:18.000-04:00"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

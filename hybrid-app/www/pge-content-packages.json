@@ -1,0 +1,17 @@
+{
+   "content": [
+      {
+      "name": "en",
+      "title": "Shell",
+      "type": "INSTANCE",
+      "path": "/splash-page",
+      "updatePath": "/content/mobileapps/helloapp2/shell/jcr:content/pge-app/app-config"
+      }
+   ],
+   "serverURL": "http://localhost:4502/",
+   "oauth": {
+      "clientId": "aem-app-client-id",
+      "clientSecret": "aem-app-client-secret",
+      "redirectURI": "http://localhost"
+   }
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:dam="http://www.day.com/dam/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:file">
+    <jcr:content
+        dam:folderThumbnailPaths="[/content/dam/mobileapps/locations/sanfrancisco/corp_p_ethaneismann_0908.jpeg,/content/dam/mobileapps/locations/sanfrancisco/corp_a_sf02_0509.png,/content/dam/mobileapps/locations/sanfrancisco/corp_a_sf12_0509.png]"
+        jcr:primaryType="nt:unstructured"
+        bgcolor="{Long}-1"
+        height="{Long}140"
+        width="{Long}240"/>
+</jcr:root>

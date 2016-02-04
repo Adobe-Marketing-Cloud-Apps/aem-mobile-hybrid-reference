@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    contentTypes="[text/html]"
+    enabled="{Boolean}true"
+    generatorType="htmlparser"
+    order="2000"
+    paths="[/content/phonegap,/content/mobileapps,/content/campaigns]"
+    serializerType="htmlwriter"
+    transformerTypes="[linkchecker,contentsync,hybridapp,mobileappscampaign]">
+    <generator-htmlparser
+        jcr:primaryType="nt:unstructured"
+        includeTags="[A,/A,IMG,VIDEO,/VIDEO,SOURCE,LINK,SCRIPT,FORM,ION-CONTENT,BODY,/BODY,HEAD,/HEAD,DIV,/DIV]"/>
+</jcr:root>

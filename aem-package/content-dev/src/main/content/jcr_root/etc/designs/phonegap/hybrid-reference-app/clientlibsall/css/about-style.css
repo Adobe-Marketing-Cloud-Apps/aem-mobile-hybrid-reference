@@ -1,0 +1,28 @@
+.about .scroll {
+    width: 100%;
+    height: 100%;
+}
+
+.about .section:first-child {
+    padding: 0.5rem;
+    position: absolute;
+    width: 100%;
+    top: 1rem;
+}
+
+.about .section:nth-child(2){
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    text-align: center;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.about .section:last-child {
+    width: 100%;
+    position: absolute;
+    text-align: center;;
+    bottom: 1rem;
+}
