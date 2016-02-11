@@ -68,7 +68,7 @@ If you followed the instructions correctly and have your author instance running
 
 When deploying an existing hybrid app for production it should be wrapped in an AEM package to simplify versioning and deployment.
 An additional content package is included with this sample which will wrap the existing ionic app into the correct JCR structure.
-Undesireable results may occur when installing this package to a server instance that previously imported the app via drag and drop.
+Undesirable results may occur when installing this package to a server instance that previously imported the app via drag and drop.
 
     cd aem-mobile-hybrid-reference/aem-package
     mvn -PautoInstallProduction clean install
@@ -93,3 +93,10 @@ Content being managed by AEM will be automatically merged into the hybrid app du
     cd aem-mobile-hybrid-reference/hybrid-app
     cordova platform add ios
     cordova run ios --emulator --aem-merge
+
+## Build a Single Package
+
+This allows you to build the sample as one content package.
+
+    cd aem-mobile-hybrid-reference/aem-package/hybrid-reference-app-all-pkg
+    mvn clean install content-package:install

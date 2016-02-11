@@ -6,7 +6,7 @@
 
         The intent of the reference app is to offer a clear separation of concerns for a development team to better understand how AEM hybrid mobile apps can be built.  The app contains a reference artchitecture and sample code on which to base your project.  In this case, we've used ionicframework.com for the mobile application development framework; however we could jave just as easily used straight angular.js or micro libraries to accomplish the same result.
 
-        The source code and readme are availble in github.com [1].
+        The source code and readme are available in github.com [1].
 
         [1] https://github.com/Adobe-Marketing-Cloud-Apps/aem-mobile-hybrid-reference
     </description>
