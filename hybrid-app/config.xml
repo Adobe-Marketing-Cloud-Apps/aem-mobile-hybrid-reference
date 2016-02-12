@@ -25,11 +25,18 @@
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="16" />
     <preference name="BackupWebStorage" value="none" />
-
     <preference name="android-build-tool" value="gradle" />
+    <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
+
     <feature name="StatusBar">
         <param name="ios-package" onload="true" value="CDVStatusBar" />
     </feature>
+    <feature name="CDVWKWebViewEngine">
+        <param name="ios-package" value="CDVWKWebViewEngine" />
+    </feature>
+
+    <platform name="ios" />
+    <platform name="android" />
 
     <plugin name="phonegap-plugin-contentsync" spec="~1.1.12" />
     <plugin name="cordova-plugin-dialogs" spec="~1.1.1" />
