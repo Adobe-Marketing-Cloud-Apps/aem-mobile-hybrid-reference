@@ -19,7 +19,7 @@
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="foundation/components/text"
-                text="&lt;p>Built with these great Adobe Marketing Cloud technologies:&lt;/p>&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xa;"
+                text="&lt;p>Built with these great Adobe Marketing Cloud technologies:&lt;/p>"
                 textIsRich="true"/>
             <image
                 jcr:created="{Date}2015-10-16T11:10:35.265-04:00"
