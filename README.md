@@ -17,7 +17,7 @@ It includes:
 3. xCode (tested: `6.4`)
 4. Cordova (tested: `5.3.3`)
 5. [node.js](http://nodejs.org/) version `>=0.12.x`
-6. AEM 6.1 + FP3
+6. AEM 6.2
 
 ## Getting Started
 
