@@ -1,6 +1,6 @@
 #base=js
 
-ionic.bundle.js
+ionic.bundle.min.js
 
 #angular/angular-resource.min.js
 #angular/angular-route.min.js
