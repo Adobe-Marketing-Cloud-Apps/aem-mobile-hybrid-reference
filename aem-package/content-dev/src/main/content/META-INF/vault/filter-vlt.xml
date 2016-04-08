@@ -9,7 +9,7 @@
         <exclude pattern="/content/dam/mobileapps/hybrid-reference-app/icon(/.*/)+cq5dam(.*)+"/>
     </filter>
     <filter root="/apps/hybrid-reference-app"/>
-    <filter root="/apps/foundation/components"/>
+    <filter root="/apps/cq"/>
     <filter root="/etc/designs/phonegap/hybrid-reference-app"/>
     <filter root="/etc/clientlibs/adobe/ionic-1.1.0"/>
     <filter root="/home">
