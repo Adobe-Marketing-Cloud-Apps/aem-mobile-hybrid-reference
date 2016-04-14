@@ -1,4 +1,4 @@
-# AEM – mobile: _hybrid reference app_
+# AEM Mobile: _hybrid reference app_
 
 This is a basic AEM Mobile Hybrid reference application authored using [Ionic Framework](ionicframework.com).
 
@@ -17,7 +17,9 @@ It includes:
 3. xCode (tested: `6.4`)
 4. Cordova (tested: `5.3.3`)
 5. [node.js](http://nodejs.org/) version `>=0.12.x`
-6. AEM 6.1 + FP3
+6. AEM 6.1 
+    - AEM [Service Pack 1](https://www.adobeaemcloud.com/content/marketplace/marketplaceProxy.html?packagePath=/content/companies/public/adobe/packages/cq610/servicepack/AEM-6.1-Service-Pack-1)
+    - Apps [Feature Pack 3](https://www.adobeaemcloud.com/content/marketplace/marketplaceProxy.html?packagePath=/content/companies/public/adobe/packages/cq610/featurepack3/cq-6.1.0-apps-featurepack)
 
 ## Getting Started
 
