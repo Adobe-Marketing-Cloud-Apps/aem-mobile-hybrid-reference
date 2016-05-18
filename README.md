@@ -1,10 +1,10 @@
 # AEM Mobile: _hybrid reference app_
 
-This is a basic AEM Mobile Hybrid reference application authored using [Ionic Framework](ionicframework.com).
+This is a basic AEM Mobile Hybrid reference application authored using [Ionic Framework](http://ionicframework.com/).
 
 It includes:
 
-1. Mobile application written in Ionic [ionicframework.com](ionicframework.com)
+1. Mobile application written in Ionic [ionicframework.com](http://ionicframework.com/)
 2. ContentSync OTA updates
 3. Basic authentication
 4. Extensions to add authorable pages for: locations, events, and about us.
@@ -25,7 +25,7 @@ It includes:
 
 Clone this repository to your machine to begin.
 
-This repository consists of a [hybrid app](hybrid-app) built using the [Ionic Framework](ionicframework.com) and an associated [AEM Package](aem-package) that will enable authoring once installed to an AEM instance.
+This repository consists of a [hybrid app](hybrid-app) built using the [Ionic Framework](http://ionicframework.com/) and an associated [AEM Package](aem-package) that will enable authoring once installed to an AEM instance.
 
 # Demo
 
