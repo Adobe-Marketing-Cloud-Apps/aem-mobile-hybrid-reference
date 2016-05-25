@@ -14,7 +14,7 @@ It includes:
 
 1. Maven (tested: Apache Maven `3.2.2`)
 2. Git (tested: git version `2.3.2`)
-3. xCode (tested: `6.4`)
+3. Xcode (tested: `6.4`)
 4. Cordova (tested: `5.3.3`)
 5. [node.js](http://nodejs.org/) version `>=0.12.x`
 6. AEM 6.1 
