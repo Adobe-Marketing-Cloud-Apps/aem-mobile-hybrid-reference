@@ -4,7 +4,7 @@ This is a basic AEM Mobile Hybrid reference application authored using [Ionic Fr
 
 It includes:
 
-1. Mobile application written in Ionic [ionicframework.com](http://ionicframework.com/)
+1. Mobile application written in [Ionic Framework](http://ionicframework.com/)
 2. ContentSync OTA updates
 3. Basic authentication
 4. Extensions to add authorable pages for: locations, events, and about us.
