@@ -1,10 +1,10 @@
 # AEM Mobile: _hybrid reference app_
 
-This is a basic AEM Mobile Hybrid reference application authored using [Ionic Framework](ionicframework.com).
+This is a basic AEM Mobile Hybrid reference application authored using [Ionic Framework](http://ionicframework.com/).
 
 It includes:
 
-1. Mobile application written in Ionic [ionicframework.com](ionicframework.com)
+1. Mobile application written in [Ionic Framework](http://ionicframework.com/)
 2. ContentSync OTA updates
 3. Basic authentication
 4. Extensions to add authorable pages for: locations, events, and about us.
@@ -14,7 +14,7 @@ It includes:
 
 1. Maven (tested: Apache Maven `3.2.2`)
 2. Git (tested: git version `2.3.2`)
-3. xCode (tested: `6.4`)
+3. Xcode (tested: `6.4`)
 4. Cordova (tested: `5.3.3`)
 5. [node.js](http://nodejs.org/) version `>=0.12.x`
 6. AEM 6.1 
@@ -25,7 +25,7 @@ It includes:
 
 Clone this repository to your machine to begin.
 
-This repository consists of a [hybrid app](hybrid-app) built using the [Ionic Framework](ionicframework.com) and an associated [AEM Package](aem-package) that will enable authoring once installed to an AEM instance.
+This repository consists of a [hybrid app](hybrid-app) built using the [Ionic Framework](http://ionicframework.com/) and an associated [AEM Package](aem-package) that will enable authoring once installed to an AEM instance.
 
 # Demo
 
@@ -62,7 +62,7 @@ NOTE: Once built and installed via maven, your hybrid app should be editable in 
 
 WARNING: You should only edit the sample that is deployed for quick demo purposes. If you plan to create content and expect to continue to redeploy developer updates over time (you will), you need to create a new application based on this template by selecting the '+' new app button on the Mobile Console and selecting the Hybrid Template during the creation process.  This will create a clean separation between the Author creating content in the new application and any developer updates (the newly created app will pick up the developer updates without clobbering the author's content).  Taking this one step further, navigate into the package manager and create a new package for your new application (including assets). Then download and save this package as a backup (you can automate this process).
 
-The [dashbaord](http://localhost:4502/libs/mobileapps/admin/content/dashboard.html/content/mobileapps/hybrid-reference-app/shell) for the app that was previously added will
+The [dashboard](http://localhost:4502/libs/mobileapps/admin/content/dashboard.html/content/mobileapps/hybrid-reference-app/shell) for the app that was previously added will
 now contain a new entry called *English* under the *Manage Content* section.
 
 If you followed the instructions correctly and have your author instance running locally on `:4502`, you should be able to author the hybrid app that was previously added via the following link:
