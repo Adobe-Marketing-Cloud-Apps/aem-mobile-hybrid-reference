@@ -27,7 +27,7 @@ Clone this repository to your machine to begin.
 
 This repository consists of a [hybrid app](hybrid-app) built using the [Ionic Framework](http://ionicframework.com/) and an associated [AEM Package](aem-package) that will enable authoring once installed to an AEM instance.
 
-Review the [Adding OTA](wiki/Adding-OTA) wiki for details on how to enable OTA updates in an existing hybrid app (Cordova/PhoneGap).
+Review the [Adding OTA](../../wiki/Adding-OTA) wiki for details on how to enable OTA updates in an existing hybrid app (Cordova/PhoneGap).
 
 # Demo
 
@@ -47,7 +47,7 @@ A script is available that will create an archive of the app or you can use any 
 1. Publish updates OTA with ContentSync
 1. Open [AEM Mobile Verify](https://itunes.apple.com/us/app/phonegap-enterprise/id924780940?ls=1&mt=8) to view your app
  
-Review the [Customizing App Import](wiki/Customizing-App-Import) wiki for details on how to control and customize the AEM Mobile app import process.
+Review the [Customizing App Import](../../wiki/Customizing-App-Import) wiki for details on how to control and customize the AEM Mobile app import process.
 
 ## Install AEM Package
 
