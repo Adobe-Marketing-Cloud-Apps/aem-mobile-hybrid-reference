@@ -102,9 +102,3 @@ Content being managed by AEM will be automatically merged into the hybrid app du
     cordova platform add ios
     cordova run ios --emulator --aem-merge
 
-## Build a Single Package
-
-This allows you to build the sample as one content package.
-
-    cd aem-mobile-hybrid-reference/aem-package/hybrid-reference-app-all-pkg
-    mvn clean install content-package:install
