@@ -19,7 +19,7 @@
     <access origin="*" />
     <allow-navigation href="*" />
 
-    <preference name="phonegap-version" value="cli-5.2.0" />
+    <preference name="phonegap-version" value="cli-6.3.0" />
     <preference name="webviewbounce" value="false" />
     <preference name="UIWebViewBounce" value="false" />
     <preference name="DisallowOverscroll" value="true" />
@@ -61,12 +61,12 @@
         <splash src="res/splash/android/aem-hybrid_reference_launch_landscape.png" density="land-xxxhdpi"/>
     </platform>
 
-    <plugin name="phonegap-plugin-contentsync" spec="~1.1.12" />
+    <plugin name="phonegap-plugin-contentsync" spec="1.2.4" />
     <plugin name="cordova-plugin-dialogs" spec="~1.1.1" />
-    <plugin name="ionic-plugin-keyboard" spec="~1.0.7" />
+    <plugin name="ionic-plugin-keyboard" spec="^2.0.0" />
     <plugin name="cordova-plugin-device" spec="^1.0.0" />
     <plugin name="cordova-plugin-geolocation" spec="~2.0.0" />
-    <plugin name="cordova-plugin-inappbrowser" spec="~1.0.1" />
+    <plugin name="cordova-plugin-inappbrowser" spec="1.1.1" />
     <plugin name="cordova-plugin-network-information" spec="~1.0.1" />
     <plugin name="cordova-plugin-camera" spec="~2.0.0" />
     <plugin name="cordova-plugin-file-transfer" spec="^1.0.0" />
