@@ -1,15 +1,23 @@
 <ion-view title="Location">
     <ion-content class="location" scroll="false">
 
-        <div id="map_canvas">
+        <div class="map-view">
+            <google-map zoom="12"
+                        maptype="roadmap"
+                        center="origin"
+                        markers="locations"
+                        refresh="showMap"
+                        cq-on-info-click="details(object, '#/app/location/details') ">
+                Loading map...
+            </google-map>
         </div>
 
-        <div class="locationlist">
+        <div class="list-view">
                 <ion-scroll>
-                    <ion-list ng-controller="LocationCtrl">
-                        <ion-item ng-repeat="location in locationlist">
+                    <ion-list>
+                        <ion-item ng-repeat="location in locations">
                             <div class="locationcard">
-                                <div ng-click="moveMapTo({{location}})">
+                                <div>
                                     <div class="cardimagecontainer">
                                         <ion-slide-box>
                                             <ion-slide>

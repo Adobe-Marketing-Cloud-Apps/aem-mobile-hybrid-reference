@@ -1,14 +1,7 @@
-angular.module('hybridapp.controllers', ['hybridapp.services'])
+angular.module('hybridapp.controllers', [])
 
     .controller('AppCtrl', ['$scope', '$rootScope', '$ionicModal', '$timeout', 'appManifest', 'appState', '$rootElement', 'TargetService',
         function ($scope, $rootScope, $ionicModal, $timeout, appManifest, appState, $rootElement, TargetService) {
-
-            // With the new view caching in Ionic, Controllers are only called
-            // when they are recreated or on app start, instead of every page change.
-            // To listen for when this page is active (for example, to refresh data),
-            // listen for the $ionicView.enter event:
-            //$scope.$on('$ionicView.enter', function(e) {
-            //});
 
             // Form data for the login modal
             $scope.loginData = {};
@@ -192,5 +185,22 @@ angular.module('hybridapp.controllers', ['hybridapp.services'])
                     }
                 );
             };
+
         }
-    ]);
+    ])
+
+    .controller('MenuCtrl', ['$scope', '$ionicSideMenuDelegate', function($scope, $ionicSideMenuDelegate) {
+        $scope.menuStyle = {};
+        $scope.$watch(function(){
+            return $ionicSideMenuDelegate.getOpenRatio();
+        }, function(newValue, oldValue) {
+            if (newValue == 0){
+                $scope.hideLeft = true;
+            } else{
+                $scope.hideLeft = false;
+            }
+            $scope.menuStyle.opacity = newValue;
+        });
+    }])
+
+;

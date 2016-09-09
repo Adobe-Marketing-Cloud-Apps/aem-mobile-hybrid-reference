@@ -62,20 +62,47 @@ angular.module('hybridapp.services', [])
         }
     }])
 
-    .factory('AEMcsrfToken', ['$http', function($http) {
+    .factory('AEMcsrfToken', ['$http', function ($http) {
         var tokenPath = '/libs/granite/csrf/token.json';
 
-        var requestToken = function(hostURL, callback) {
+        var requestToken = function (hostURL, callback) {
             var requestURI = hostURL + tokenPath;
-            $http.get(requestURI).then(function(response) {
+            $http.get(requestURI).then(function (response) {
                 callback(response.data.token);
             });
         };
 
         return {
-            getToken : requestToken
+            getToken: requestToken
         }
     }])
+
+    .factory( 'phonegapReady', ['$window', function( $window ) {
+        return function( fn ) {
+            var queue = [];
+
+            var impl = function() {
+                queue.push( Array.prototype.slice.call( arguments ) );
+            };
+
+            function onDeviceReady() {
+                queue.forEach( function( args ) {
+                    fn.apply( this, args );
+                } );
+                impl = fn;
+            }
+
+            if( $window.cordova ) {
+                document.addEventListener( 'deviceready', onDeviceReady, false );
+            } else {
+                onDeviceReady();
+            }
+
+            return function() {
+                return impl.apply( this, arguments );
+            };
+        };
+    }] )
 ;
 
 

@@ -1,33 +1,12 @@
   [
     {
-      "title":"Placeholder 1",
-      "address":"Placeholder Address 1",
+      "title":"Placeholder",
+      "address":"Placeholder Address",
       "imgUrl1" :"content/mobileapps/hybrid-reference-app/en/welcome/locations/placeholder/cityplaceholder1.jpg",
       "imgUrl2" :"content/mobileapps/hybrid-reference-app/en/welcome/locations/placeholder/cityplaceholder2.jpg",
       "imgUrl3" :"content/mobileapps/hybrid-reference-app/en/welcome/locations/placeholder/cityplaceholder3.jpg",
       "latitude":45.40230,
       "longitude":-75.70941,
       "detailsUrl":"placeholder"
-    },
-    {
-      "title":"Placeholder 2",
-      "address":"Placeholder Address 2",
-      "imgUrl1" :"content/mobileapps/hybrid-reference-app/en/welcome/locations/placeholder/cityplaceholder2.jpg",
-      "imgUrl2" :"content/mobileapps/hybrid-reference-app/en/welcome/locations/placeholder/cityplaceholder1.jpg",
-      "imgUrl3" :"content/mobileapps/hybrid-reference-app/en/welcome/locations/placeholder/cityplaceholder3.jpg",
-      "latitude":37.39605,
-      "longitude":-121.90645,
-      "detailsUrl":"placeholder"
-    },
-    {
-      "title":"Placeholder 3",
-      "address":"Placeholder Address 3",
-      "imgUrl1" :"content/mobileapps/hybrid-reference-app/en/welcome/locations/placeholder/cityplaceholder3.jpg",
-      "imgUrl2" :"content/mobileapps/hybrid-reference-app/en/welcome/locations/placeholder/cityplaceholder2.jpg",
-      "imgUrl3" :"content/mobileapps/hybrid-reference-app/en/welcome/locations/placeholder/cityplaceholder1.jpg",
-      "latitude":40.43576,
-      "longitude":-111.89166,
-      "detailsUrl":"placeholder"
-
     }
   ]

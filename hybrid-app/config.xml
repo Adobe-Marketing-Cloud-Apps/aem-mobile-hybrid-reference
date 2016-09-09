@@ -27,6 +27,10 @@
     <preference name="BackupWebStorage" value="none" />
     <preference name="android-build-tool" value="gradle" />
     <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
+    <preference name="SplashScreen" value="screen" />
+    <preference name="FadeSplashScreenDuration" value="2000"/>
+    <preference name="AutoHideSplashScreen" value="false"/>
+    <preference name="SplashScreenSpinnerColor" value="#ed1c24"/>
 
     <feature name="StatusBar">
         <param name="ios-package" onload="true" value="CDVStatusBar" />
@@ -72,6 +76,12 @@
     <plugin name="cordova-plugin-file-transfer" spec="^1.0.0" />
     <plugin name="cordova-plugin-x-socialsharing" spec="~5.0.7" />
     <plugin name="cordova-plugin-whitelist" spec="~1.0.0" />
+    <plugin name="cordova-plugin-googlemaps" spec="https://github.com/phonegap-googlemaps-plugin/cordova-plugin-googlemaps">
+        <variable name="API_KEY_FOR_ANDROID" value="AIzaSyA5dTd06Y9RcVerBd_qrmhB01XGT6788q4" />
+        <variable name="API_KEY_FOR_IOS" value="AIzaSyDgDUy7QGg8eVNNmJv51wPl3eMXCTB_d0o" />
+        <param name="API_KEY_FOR_ANDROID" value="AIzaSyA5dTd06Y9RcVerBd_qrmhB01XGT6788q4" />
+        <param name="API_KEY_FOR_IOS" value="AIzaSyDgDUy7QGg8eVNNmJv51wPl3eMXCTB_d0o" />
+    </plugin>
 
 
     <hook src="scripts/merge-aem.js" type="before_prepare" />
