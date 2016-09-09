@@ -3,7 +3,7 @@
  * ADOBE CONFIDENTIAL
  * ___________________
  *
- *  Copyright 2015 Adobe Systems Incorporated
+ *  Copyright 2016 Adobe Systems Incorporated
  *  All Rights Reserved.
  *
  * NOTICE:  All information contained herein is, and remains
@@ -62,66 +62,72 @@
     }
 
 })();
-;
+
 /**
  * The cq namespace.
+ *
  * @namespace cq
+ * @since 1.0
  */
 var cq = window.cq || {};
 
 /**
  * The cq.mobileapps namespace.
+ *
  * @namespace cq.mobileapps
+ * @since 1.0
  */
 cq.mobileapps = cq.mobileapps || {};
 
 /**
- * The cq.mobileapps.auth namespace.
+ * The cq.mobileapps.auth namespace provides classes that can be used to authenticate
+ * againt a AEM instance.
+ *
  * @namespace cq.mobileapps.auth
+ * @since 1.0
  */
 cq.mobileapps.auth = cq.mobileapps.auth || {};
 
 /**
- * The cq.mobileapps.datastore namespace.
- * @namespace cq.mobileapps.datastore
- */
-cq.mobileapps.datastore = cq.mobileapps.datastore || {};
-
-/**
  * The cq.mobileapps.provider namespace.
+ *
  * @namespace cq.mobileapps.provider
+ * @since 1.0
  */
 cq.mobileapps.provider = cq.mobileapps.provider || {};
 
 /**
  * The cq.mobileapps.targeting namespace.
- * @namespace cq.mobileapps.targeting
- */
-cq.mobileapps.targeting = cq.mobileapps.targeting || {};;
-/**
- * The cq.mobileapps.util namespace provides utility functions.
  *
- * @namespace cq.mobileapps.util
+ * @namespace cq.mobileapps.targeting
+ * @since 1.0
  */
+cq.mobileapps.targeting = cq.mobileapps.targeting || {};
 ;(function(ns) {
     'use strict';
 
+    /**
+     * The cq.mobileapps.util namespace provides utility functions.
+     *
+     * @namespace cq.mobileapps.util
+     */
     ns.util = ns.util || (function(undefined) {
 
             /**
-             * Iterates over the object's properties a query string from the properties of the object.
-             * The query string's key and values will be encoded.
+             * Iterates over the object's properties and generate a query string from the properties of the object.  The
+             * query string's key and value will be encoded.
              *
-             * @param {object} o - The object literal.
-             * @returns {string} string - A string in the format of key1=value1&key2=value2.
+             * @param {object} obj - the object literal.
+             * @returns {string} a string in the format of key1=value1&key2=value2.
+             *
              * @alias param
-             * @memberof! cq.mobileapps.util#
+             * @memberof! cq.mobileapps.util
              */
-            function _param(o) {
+            function _param(obj) {
                 var r20 = /%20/g;
 
-                return Object.keys(o).map(function(k) {
-                    return encodeURIComponent(k) + '=' + encodeURIComponent(o[k]);
+                return Object.keys(obj).map(function(k) {
+                    return encodeURIComponent(k) + '=' + encodeURIComponent(obj[k]);
                 }).join("&").replace(r20, "+");
             }
 
@@ -129,6 +135,9 @@ cq.mobileapps.targeting = cq.mobileapps.targeting || {};;
              * Encode the input string into a Base64 encoded value and return it.
              * @param {string} input the string to encode
              * @returns {string} a Base64 encoded string.
+             *
+             * @alias base64Encode
+             * @memberof! cq.mobileapps.util
              */
             function _base64Encode( input ) {
                 return window.btoa(input);
@@ -138,6 +147,9 @@ cq.mobileapps.targeting = cq.mobileapps.targeting || {};;
              * Decode the input string from a Base64 string to a non encode string.
              * @param {string} input the string to decode
              * @returns {string} a non encoded string.
+             *
+             * @alias base64Decode
+             * @memberof! cq.mobileapps.util
              */
             function _base64Decode( input ) {
                 return window.atob(input);
@@ -152,17 +164,18 @@ cq.mobileapps.targeting = cq.mobileapps.targeting || {};;
         })();
 
 })(cq.mobileapps);
-;
-/**
- * The cq.mobileapps.util namespace provides utility functions.
- *
- * @namespace cq.mobileapps.util
- */
 ;(function(ns, undefined) {
     'use strict';
 
+    /**
+     * The cq.mobileapps.util.file namespace provides utility functions for loading JSON
+     * and HTML content.
+     *
+     * @namespace cq.mobileapps.util.file
+     */
     ns.util.file = ns.util.file || (function(undefined) {
 
+            /** @private */
             function _getAbsolutePath(path) {
                 var currentLocation = window.location.href;
                 var indexOfWWW = currentLocation.indexOf('/www/');
@@ -172,6 +185,7 @@ cq.mobileapps.targeting = cq.mobileapps.targeting || {};;
                 return null;
             }
 
+            /** @private */
             function _loadFile(path, callback, requestHeaders) {
                 var url = _getAbsolutePath(path);
                 if (url === null) {
@@ -210,7 +224,16 @@ cq.mobileapps.targeting = cq.mobileapps.targeting || {};;
                 request.send();
             }
 
-            // if we can't parse the data then we return an empty object
+            /**
+             * Load the JSON content specified by the path and call the callback with the resulting data.
+             * If the data can not be parsed the value returned will be an empty object.
+             *
+             * @param {string} path
+             * @param {cq.mobileapps.util.file~fetchJSONCallback} callback - The callback function
+             *
+             * @alias fetchJSON
+             * @memberof! cq.mobileapps.util.file
+             */
             function _fetchJSON(path, callback) {
                 _loadFile(path, function (error, data) {
                     if (error) {
@@ -229,6 +252,15 @@ cq.mobileapps.targeting = cq.mobileapps.targeting || {};;
                 });
             }
 
+            /**
+             * Load the HTML content specified by the path and call the callback with the resulting data.
+             *
+             * @param {string} path
+             * @param {cq.mobileapps.util.file~fetchHTMLCallback} callback - The callback function
+             *
+             * @memberof! cq.mobileapps.util.file
+             * @alias fetchHTML
+             */
             function _fetchHTML(path, callback) {
                 _loadFile(path, function (error, data) {
                     if (error) {
@@ -245,10 +277,21 @@ cq.mobileapps.targeting = cq.mobileapps.targeting || {};;
                 fetchHTML: _fetchHTML
             };
 
+            /**
+             * @callback cq.mobileapps.util.file~fetchJSONCallback
+             * @param {string} error - If there was a problem loading the JSON.
+             * @param {object} data - the JSON data.
+             */
+
+            /**
+             * @callback cq.mobileapps.util.file~fetchHTMLCallback
+             * @param {string} error - If there was a problem loading the HTML.
+             * @param {object} data - the HTML data.
+             */
         })();
 
 })(cq.mobileapps);
-;
+
 ;(function(window, ns, undefined) {
 
     'use strict';
@@ -257,12 +300,7 @@ cq.mobileapps.targeting = cq.mobileapps.targeting || {};;
      * The base object for different authorization schemes to extends.  For
      * example OAuth and Basic auth should extend the Auth class.
      *
-     * This class also exports cq.mobilesapps.auth.getToken and cq.mobileapps.auth.getServer
-     * functions such that other apis can get access to the token or server values.
-     *
-     * @param {string} server - the aem server url.  Most cases this should point to
-     * your publish AEM instance.
-     *
+     * @param {string} server - the aem server url.  Most cases this should point to your publish AEM instance.
      * @param {string} token - a previously obtained token to associate with this Auth class.
      *
      * @class
@@ -299,66 +337,67 @@ cq.mobileapps.targeting = cq.mobileapps.targeting || {};;
         this._setToken = function(token) {
             _token = token;
         };
-
-        /**
-         * Return the AEM server url.
-         *
-         * @returns {string} the server url.
-         *
-         * @since 1.0
-         */
-        Auth.prototype.getServer = function() {
-            return this._getServer();
-        };
-
-        /**
-         * Return the authorized token.
-         *
-         * @returns {string} token - The authentication token.
-         *
-         * @since 1.0
-         */
-        Auth.prototype.getToken = function() {
-            return this._getToken();
-        };
-
-        /**
-         * Set the token that was generated when the user was authenticated.
-         *
-         * @param {string} token - the authentication token.
-         *
-         * @since 1.0
-         */
-        Auth.prototype.setToken = function(token) {
-            this._setToken(token);
-        };
     }
 
     /**
-     * @callback cq.mobileapps.auth.Auth~authorizeCallback
-     * @param {string} error - The value of error will be non null if there was an error authenticating.
-     * @param {object} result - The response from the server's authorization as a JSON object.
+     * Return the AEM server url.
+     * @returns {string} the server url.
+     * @since 1.0
+     */
+    Auth.prototype.getServer = function() {
+        return this._getServer();
+    };
+
+    /**
+     * @callback cq.mobileapps.auth.Auth~getTokenCallback
+     * @param {int} error - If there was a problem obtaining the token.
+     * @param {string} token - The token
      */
 
     /**
-     * The authorize function must be overriden by subclasses and provide authentication for the
-     * user. The results of the authorization must call setToken() with the authentication token.
+     * Return the authorized token.
      *
-     * @param {object} params - additional parameters to be sent to the server.
-     * @param {cq.mobileapps.auth.Auth~authorizeCallback} callback - The callback function
+     * @param {cq.mobileapps.auth.Auth~getTokenCallback} callback - The callback function
      *
      * @since 1.0
      */
-    Auth.prototype.authorize = function(params, callback) {
+    Auth.prototype.getToken = function(callback) {
+        callback(null, this._getToken());
+    };
+
+    /**
+     * Set the token that was generated when the user was authenticated.
+     * @param {string} token - the authentication token.
+     * @since 1.0
+     */
+    Auth.prototype.setToken = function(token) {
+        this._setToken(token);
+    };
+
+    /**
+     * The authorize function must be overridden by subclasses and provide authentication for the
+     * user. The results of the authorization must call setToken() with the authentication token.
+     * @param {cq.mobileapps.auth.Auth~authorizeCallback} callback - The callback function
+     * @since 1.0
+     * @abstract
+     */
+    Auth.prototype.authorize = function(callback) {
         throw Error("Subclasses must override authorize");
     };
+
+
+    /**
+     * @callback cq.mobileapps.auth.Auth~authorizeCallback
+     * @param {int} error - If there was a problem authenticating with the server
+     * the error param will contain the error code.
+     */
 
     ns.Auth = Auth;
 
 })(this, cq.mobileapps.auth);
 
 
-;
+
 ;(function(ns, undefined) {
 
     'use strict';
@@ -381,12 +420,13 @@ cq.mobileapps.targeting = cq.mobileapps.targeting || {};;
      * @param {string} params.client_id - the oAuth client id value
      * @param {string} params.client_secret - the oAuth client secret value
      * @param {string} params.redirect_uri - the url to be redirected to after authentication
+     * @param {string} params.loadstop - an optional callback that is invoked when the in app window has finished loading
+     * the login page.
      *
+     * @class
      * @augments cq.mobileapps.auth.Auth
      * @memberof cq.mobileapps.auth
-     * @class
-     *
-     * The cq.mobileapps.auth.oauth namespace provides oauth authentication.  See the tutorial {@tutorial cq.mobileapps.auth.oauth}
+     * @since 1.0
      */
     function OAuth(params) {
 
@@ -411,8 +451,15 @@ cq.mobileapps.targeting = cq.mobileapps.targeting || {};;
         this._clientId     = params.client_id;
         this._clientSecret = params.client_secret;
         this._redirectURI  = params.redirect_uri;
+        this._loadstop     = params.loadstop;
     }
 
+    OAuth.prototype = Object.create(ns.Auth.prototype);
+    OAuth.prototype.constructor = OAuth;
+
+    /**
+     * @private
+     */
     function _setToken(token) {
         /* jshint validthis: true */
         if (token === null) {
@@ -423,68 +470,53 @@ cq.mobileapps.targeting = cq.mobileapps.targeting || {};;
             this.setToken(null);
         } else {
             localStorage.setItem(LOCAL_STORAGE.ACCESS_TOKEN, token.access_token);
-            localStorage.setItem(LOCAL_STORAGE.REFRESH_TOKEN, token.refresh_token);
+
+            // when you call to refresh a token the refresh token is not provided again
+            if (token.refresh_token) {
+                localStorage.setItem(LOCAL_STORAGE.REFRESH_TOKEN, token.refresh_token);
+            }
+
             // Calculate exactly when the token will expire, then subtract one minute to give ourselves a small buffer.
             var now = new Date().getTime();
             var expiresAt = now + parseInt(token.expires_in, 10) * 1000 - 60000;
             localStorage.setItem(LOCAL_STORAGE.EXPIRES_AT, expiresAt);
-
             this.setToken(token.access_token);
         }
     }
 
     /**
-     * OAuth logout is a no-op.  Logout simply calls the callback function with
-     * no error.
-     * //TODO: add callback docs
-     */
-    function _logout(callback) {
-        /* jshint validthis: true */
-        _setToken.call(this, null);
-
-        if (callback && typeof callback === 'function') {
-            callback(null);
-        }
-    }
-
-    /**
-     * Authorize against the OAuth server passing in the parameters.
+     * Authenticate against the AEM OAuth server with the client id and client secrete.
      *
      * @param {cq.mobileapps.auth.Auth~authorizeCallback} callback - The callback function
-     * @return {object} the oauth window that was opened
      *
-     * @memberof! cq.mobileapps.auth.OAuth
-     *
-     * @alias authorize
      * @since 1.0
      */
-    function _authorize(callback) {
-        /* jshint validthis: true */
-        var self = this;
+    OAuth.prototype.authorize = function(callback) {
 
-        var urlParams = cq.mobileapps.util.param({
-            client_id: this._clientId,
-            scope: 'profile',
-            redirect_uri: this._redirectURI,
-            response_type: 'token'
-        });
+        var refreshToken = localStorage.getItem(LOCAL_STORAGE.REFRESH_TOKEN);
 
-        var url = self.getServer() + AEM_AUTHORIZE_URL + "?" + urlParams;
+        // if we have a refresh token then try to use it
+        if (refreshToken) {
+            this.getToken(function(error, token) {
+                if (error) {
+                    callback(error);
+                } else {
+                    callback(null, token);
+                }
+            });
+        } else {
+            /* jshint validthis: true */
+            var self = this;
 
-        function loadStartListener(e) {
-
-            var url = e.url;
-
-            var code = /[\?&]code=(.+)$/.exec(url);
-            var error = /[\?&]error=(.+)$/.exec(url);
-
-            // if we have a code or error we can close the window
-            if (code || error) {
-                authWindow.close();
-            }
+            var urlParams = cq.mobileapps.util.param({
+                client_id: this._clientId,
+                scope: 'profile offline_access',
+                redirect_uri: this._redirectURI,
+                response_type: 'code'
+            });
 
             // if we have a code we can now exchange the authorization code for an access token
-            if (code) {
+            var authorizationExchange = function(code) {
                 var params = cq.mobileapps.util.param({
                     code: code[1],
                     client_id: self._clientId,
@@ -525,52 +557,142 @@ cq.mobileapps.targeting = cq.mobileapps.targeting || {};;
                 };
 
                 xhr.send(params);
-            }
 
-            if (error) {
-                var cause = error[1];
-                if (cause && cause.indexOf('access_denied') === 0) {
-                    callback(ERROR.GRANT_PERMISSION_ERR);
-                } else {
-                    callback(ERROR.GENERAL_ERR);
+            };
+
+            var loadStartListener = function(e) {
+                var url = e.url;
+                var code  = /[\?&]code=(.+)[&]|[\?&]code=(.+)/.exec(url);
+                var error = /[\?&]error=(.+)[&]|[\?&]error=(.+)/.exec(url);
+
+                // if we have a code or error we can close the window
+                if (code || error) {
+                    authWindow.close();
+
+                    if (code) {
+                        authorizationExchange(code);
+                    }
+
+                    if (error) {
+                        var cause = error[1];
+                        if (cause && cause.indexOf('access_denied') === 0) {
+                            callback(ERROR.GRANT_PERMISSION_ERR);
+                        } else {
+                            callback(ERROR.GENERAL_ERR);
+                        }
+                    }
                 }
-            }
+            };
+
+            var exitWindowListener = function(e) {
+                authWindow.removeEventListener();
+            };
+
+            var loadStopListener = function(e) {
+                if (this._loadstop && typeof this._loadstop === 'function') {
+                    this._loadstop();
+                }
+                authWindow.show();
+            };
+
+            var loadErrorHandler = function(e) {
+                // 102 is a "Frame load interrupted" can be caused when using custom schemes as the redirect
+                // 101 is unable to load the page due to a custom scheme but not having Custom-URL-scheme plugin
+                //  installed in the app, both of these errors identify a redirect has occurred
+                // -1004 can occur if the redirect contained a page that the app could not load like a redirect
+                // however if someone were to set a invalid server url this would still fire a 1004 which isn't
+                // ideal.  this code will die when we move to SchemeHandlers in the near future
+                if (e.code === 102 || e.code === 101 || e.code === -1004) {
+                    // ignore
+                } else {
+                    callback(ERROR.COMMUNICATION_ERR);
+                }
+            };
+
+            var url = this.getServer() + AEM_AUTHORIZE_URL + "?" + urlParams;
+            var windowParams = 'location=no,clearsessioncache=yes,clearcache=yes,hidden=yes';
+
+            authWindow = window.open(url, '_blank', windowParams);
+            authWindow.addEventListener('loadstart', loadStartListener);
+            authWindow.addEventListener('exit', exitWindowListener);
+            authWindow.addEventListener('loadstop', loadStopListener.bind(this));
+            authWindow.addEventListener('loaderror', loadErrorHandler.bind(this));
         }
+    };
 
-        function exitWindowListener(e) {
-            authWindow.removeEventListener();
+    /**
+     * @inheritdoc
+     */
+    OAuth.prototype.getToken = function(callback) {
+        var self = this;
+
+        var refreshToken = localStorage.getItem(LOCAL_STORAGE.REFRESH_TOKEN);
+        var expiresTime  = localStorage.getItem(LOCAL_STORAGE.EXPIRES_AT);
+
+        var now = new Date().getTime();
+
+        if (now < expiresTime) {
+            callback(null, localStorage.getItem(LOCAL_STORAGE.ACCESS_TOKEN));
+        } else if (refreshToken) {
+            var params = cq.mobileapps.util.param({
+                client_id: this._clientId,
+                client_secret: this._clientSecret,
+                redirect_uri: this._redirectURI,
+                grant_type: 'refresh_token',
+                refresh_token: refreshToken
+            });
+
+            // The token is expired, but we can get a new one with a refresh token
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", self.getServer() + AEM_TOKEN_URL);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200 && xhr.status < 300) {
+                        var response = xhr.responseText;
+                        try {
+                            var token = JSON.parse(response);
+                            _setToken.call(self, token);
+                            callback(null, token);
+                        } catch (error) {
+                            console.error(error.message);
+                            callback(ERROR.AUTH_RESPONSE_ERR);
+                        }
+                    } else {
+                        console.error("Unable to communicate with AEM server to refresh the token");
+                        callback(ERROR.COMMUNICATION_ERR);
+                    }
+                }
+            };
+            xhr.send(params);
+        } else {
+            callback(null, null);
         }
+    };
 
-        function loadErrorListener(e) {
-            console.log("Unable to communicate with the server " + e);
 
-            if (e.code === 400) {
-                console.log("Unable to open the page...");
-            }
+    /**
+     * The OAuth logout clear the tokens from storage forcing the user to re-authenticate.
+     *
+     * @param {cq.mobileapps.auth.Auth~authorizeCallback} callback - The callback function.
+     *
+     * @since 1.0
+     */
+    OAuth.prototype.logout = function(callback) {
+        /* jshint validthis: true */
+        _setToken.call(this, null);
 
-            authWindow.close();
-            callback(ERROR.COMMUNICATION_ERR);
+        if (callback && typeof callback === 'function') {
+            callback(null);
         }
+    };
 
-        function loadStopListener(e) {
-            authWindow.show();
-        }
-
-        authWindow = window.open(url, '_blank', 'location=no,toolbar=no,hidden=yes');
-        authWindow.addEventListener('loadstart', loadStartListener);
-        authWindow.addEventListener('loaderror', loadErrorListener);
-        authWindow.addEventListener('loadstop', loadStopListener);
-        authWindow.addEventListener('exit', exitWindowListener);
-
-        return authWindow;
-    }
-
-    OAuth.prototype = Object.create(ns.Auth.prototype);
-    OAuth.prototype.constructor = OAuth;
-
-    OAuth.prototype.authorize = _authorize;
-    OAuth.prototype.logout = _logout;
-
+    /**
+     * Error object that contains the error codes if there is authentication issues.
+     *
+     * @namespace
+     */
     OAuth.ERROR_STATE = {
         /**
          * <code>COMMUNICATION_ERR</code> error can occur when there are issues connecting
@@ -605,22 +727,29 @@ cq.mobileapps.targeting = cq.mobileapps.targeting || {};;
 
     ns.OAuth = OAuth;
 
-})(cq.mobileapps.auth);;
+})(cq.mobileapps.auth);
 ;(function(ns, util, undefined) {
+
     'use strict';
 
     var LOGIN_URL = 'j_security_check',
         LOGOUT_URL = 'system/sling/logout';
 
     /**
-     * Create a BasicAuth object to configure a basic authentication connection to the specified AEM server.
+     * BasicAuth constructor used to configure a basic authentication connection to the specified AEM server.
+     *
      *
      * @param {object} params
      * @param {string} params.server - the server to authenticate against
      * @param {string} params.username - the user's name
      * @param {string} params.password - the user's password
-     * @param {string} params.token - an existing authentication token
-     * @constructor
+     * @param {string=} params.token - an existing authentication token
+     * @param {string=} params.resource - the AEM resource to logout against
+     *
+     * @class
+     * @augments cq.mobileapps.auth.Auth
+     * @memberof! cq.mobileapps.auth
+     * @since 1.0
      */
     function BasicAuth(params) {
         if (!params.token) {
@@ -659,9 +788,14 @@ cq.mobileapps.targeting = cq.mobileapps.targeting || {};;
     }
 
     /**
-     * Authenticate against the server
-     * @param callback
-     * @private
+     * Authorize against the AEM server.
+     *
+     * @param {cq.mobileapps.auth.Auth~authorizeCallback} callback - The callback function
+     *
+     * @instance
+     * @memberof cq.mobileapps.auth.BasicAuth
+     * @alias authorize
+     * @since 1.0
      */
     function authorize(callback) {
         /* jshint validthis: true */
@@ -708,10 +842,17 @@ cq.mobileapps.targeting = cq.mobileapps.targeting || {};;
         xhr.send(data);
     }
 
+    /**
+     * call the AEM logout url and remove all tokens that have
+     * been set.
+     * @param {cq.mobileapps.auth.Auth~authorizeCallback} callback - The callback function
+     *
+     * @since 1.0
+     */
     function logout(callback) {
         /* jshint validthis: true */
         var self = this;
-        var url = this.getServer() + LOGOUT_URL + this._resource;
+        var url = this.getServer() + LOGOUT_URL + (this._resource || "");
 
         var xhr = new XMLHttpRequest();
         xhr.open("GET", url);
@@ -741,6 +882,11 @@ cq.mobileapps.targeting = cq.mobileapps.targeting || {};;
     BasicAuth.prototype.authorize = authorize;
     BasicAuth.prototype.logout = logout;
 
+    /**
+     * Error object that contains the error codes if there is authentication issues.
+     *
+     * @namespace
+     */
     BasicAuth.ERROR = {
         /**
          * <code>COMMUNICATION_ERR</code> error can occur when there are issues connecting
@@ -772,7 +918,7 @@ cq.mobileapps.targeting = cq.mobileapps.targeting || {};;
 
     ns.BasicAuth = BasicAuth;
 
-})(cq.mobileapps.auth, cq.mobileapps.util);;
+})(cq.mobileapps.auth, cq.mobileapps.util);
 ;(function(window, ns, undefined) {
     'use strict';
 
@@ -793,7 +939,6 @@ cq.mobileapps.targeting = cq.mobileapps.targeting || {};;
                 cq.mobileapps.util.file.fetchHTML(offerResult.contentPath,
                     function (error, fragment) {
                         if (error) {
-                            console.warn("Unable to load " + path);
                             callback(ERROR.UNABLE_TO_LOAD_CONTENT);
                             return;
                         }
@@ -829,13 +974,17 @@ cq.mobileapps.targeting = cq.mobileapps.targeting || {};;
     };
 
     /**
-     * @classdesc The <code>Target</code> constructor.
+     * Constructor to create an instance of the Target class.  A instance must be associated with a mboxId,
+     * a parent element that will contain the injected offer, and optional mapping configuration that will be used
+     * to remap the parameters prior to sending to the Target server.
      *
      * @param {string} mboxId - the id of the mbox
      * @param {string} el - the element in the dom which to insert the offer into.
+     * @param {object=} mapping - the mapping instructions used to remap the parameters.
      *
      * @class
      * @memberof cq.mobileapps.targeting
+     * @since 1.0
      */
     function Target(mboxId, el, mapping) {
         this._mboxId = mboxId;
@@ -844,12 +993,12 @@ cq.mobileapps.targeting = cq.mobileapps.targeting || {};;
     }
 
     /**
-     * Sends request to Target and load the offer into the specified element.
+     * Send a request to the Target server and load the offer into the element that the instance
+     * was configured with.  Prior to making the call to the Target service attempt to map the parameters
+     * against the configured mapping if one was provided.
      *
      * @param {object} parameters - the parameters to be sent to target
-     * @param {function} callback - the callback is invoked when the call to target has been completed.  If there
-     * is an error the callback will be called with an error code as the first argument.  If the call is successful
-     * the callback's error will be undefined.
+     * @param {cq.mobileapps.targeting.Target~targetLoadRequest} callback
      *
      * @since 1.0
      */
@@ -870,9 +1019,20 @@ cq.mobileapps.targeting = cq.mobileapps.targeting || {};;
             parameters);
     };
 
+
+    /**
+     * @callback cq.mobileapps.targeting.Target~targetLoadRequest
+     * @param {int} error - If there was a problem with the target request.
+     */
+
+    /**
+     * Error object that contains the error codes that can occur.
+     * @namespace
+     */
     Target.ERROR = {
         /**
-         * <code>TARGET_ERROR</code> can be caused when
+         * <code>TARGET_ERROR</code> can be caused when.
+         * @constant
          */
         TARGET_ERROR : 1,
 
@@ -896,7 +1056,7 @@ cq.mobileapps.targeting = cq.mobileapps.targeting || {};;
 
     ns.Target = Target;
 
-})(window, cq.mobileapps.targeting);;
+})(window, cq.mobileapps.targeting);
 /**
  * @namespace cq.mobileapps.targeting
  */
@@ -913,9 +1073,12 @@ cq.mobileapps.targeting.util = (function(undefined) {
      *
      * <p>&lt;script type='text/javascript'&gt;CQ_Analytics.TestTarget.pull('{content.path}','{mbox.name}');&lt/script&gt;</p>
      *
-     * and the case where the default offer is returned in the format of:
-     *
+     * and the case where the default offer is returned in the format of: <br>
+     * For 6.1 SP3:
      * <p>&lt;script type='text/javascript'&gt;CQ_Analytics.TestTarget.signalDefaultOffer('{mbox.name}');&lt/script&gt;</p>
+     *
+     * For 6.2 <br>
+     * <p>&lt;script type='text/javascript'&gt;CQ_Analytics.TestTarget.signalDefaultOffer('{mbox.name}','1.0.0');&lt/script&gt;</p>
      *
      * @param offer
      *
@@ -931,7 +1094,7 @@ cq.mobileapps.targeting.util = (function(undefined) {
      *
      */
     function _parse(offer) {
-        var regex = /pull\(\'(.+)',\'(.+)'\)\;/;
+        var regex = /pull\('([^,]*)','([^,]*)'/;
         var results = regex.exec(offer);
 
         if (!results || results.length !== 3) {
@@ -1004,34 +1167,26 @@ cq.mobileapps.targeting.util = (function(undefined) {
         map: _map
     };
 
-})();;
+})();
 ;(function(ns, undefined) {
 
     "use strict";
 
     /**
-     * @classdesc Base class for all providers.
+     * Base class for all providers.
+     *
      * @class
      * @memberof cq.mobileapps.provider
      * @since 1.0
      */
     function Provider() {
-
     }
-
-    /**
-     * @callback cq.mobileapps.Provider.fetch~fetchCallback
-     * @typeof callback
-     * @param {number} error - If an error occurs the value of error will be set
-     * @param {object} data - the provider's data
-     * @memberof cq.mobileapps.provider.Provider
-     */
 
     /**
      * Abstract method that all provider need to implement.
      *
      * @abstract
-     * @param {cq.mobileapps.provider.Provider~getCallback} callback - The callback function
+     * @param {cq.mobileapps.provider.Provider~fetchCallback} callback - The callback function
      * @since 1.0
      */
     Provider.prototype.fetch = function(callback) {
@@ -1040,14 +1195,20 @@ cq.mobileapps.targeting.util = (function(undefined) {
 
     ns.Provider = Provider;
 
+    /**
+     * @callback cq.mobileapps.provider.Provider~fetchCallback
+     * @param {number} error - If an error occurs the value of error will be set
+     * @param {object} data - the provider's data
+     */
 
-})(cq.mobileapps.provider);;
+})(cq.mobileapps.provider);
 ;(function(ns, undefined) {
 
     "use strict";
 
     /**
-     * @classdesc Base class for all profile providers.
+     * Base class for all profile providers.
+     *
      * @class
      * @memberof cq.mobileapps.provider
      * @since 1.0
@@ -1061,8 +1222,21 @@ cq.mobileapps.targeting.util = (function(undefined) {
     }
 
     /**
+     * Classes that extend ProfileProvider must specify if they accept the type of authentication type
+     * specified by the parameter auth.
+     *
+     * @param {cq.mobileapps.auth.Auth} auth - instance of a class that extends cq.mobileapps.auth.Auth
      *
      * @abstract
+     * @since 1.0
+     */
+    ProfileProvider.accepts = function(auth) {
+        return false;
+    };
+
+    /**
+     * Return the instance of cq.mobileapps.auth.Auth that was set with the ProfileProvider.
+     *
      * @since 1.0
      */
     ProfileProvider.prototype.getAuth = function() {
@@ -1071,12 +1245,23 @@ cq.mobileapps.targeting.util = (function(undefined) {
 
     ns.ProfileProvider = ProfileProvider;
 
-
-})(cq.mobileapps.provider);;
+})(cq.mobileapps.provider);
 ;(function(ns, undefined) {
 
     "use strict";
 
+    /**
+     * The cq.mobileapps.provider.ProfileProviderRegistry provides instances of cq.mobileapps.profile.ProfileProvider
+     * a way to register themselves to a specific authorization type.  For example an instance of cq.mobileapps.auth.OAuth
+     * would have a ProfileProvider that knows how to obtain user profile information using oauth.  The same goes
+     * for BasicAuth where there is an associated cq.mobileapps.profile.ProfileProvider that knows how to obtain user
+     * information using Basic authentication.
+     *
+     * Additional ProfileProviders can be added and will be called if the provider supports the authentication type.
+     *
+     * @name ProfileProviderRegistry
+     * @memberof cq.mobileapps.provider
+     */
     ns.ProfileProviderRegistry = (function() {
 
         var providers = [];
@@ -1101,7 +1286,7 @@ cq.mobileapps.targeting.util = (function(undefined) {
 
     })();
 
-})(cq.mobileapps.provider);;
+})(cq.mobileapps.provider);
 ;(function(ns, undefined) {
 
     "use strict";
@@ -1109,7 +1294,8 @@ cq.mobileapps.targeting.util = (function(undefined) {
     var PROFILE_URL = 'libs/granite/security/currentuser.json?props=profile/*';
 
     /**
-     * @classdesc BasicAuthUserProfileProvider provides information about the current user.
+     * BasicAuthUserProfileProvider provides information about the current user.
+     *
      * @class
      * @augments cq.mobileapps.provider.ProfileProvider
      * @memberof cq.mobileapps.provider
@@ -1129,57 +1315,65 @@ cq.mobileapps.targeting.util = (function(undefined) {
      * @since 1.0
      */
     BasicAuthUserProfileProvider.prototype.fetch = function(callback) {
-        if (!this.getAuth().getToken()) {
-            throw Error("You must be authenticated priory to making a request");
-        }
+        var self = this;
 
-        var url = this.getAuth().getServer() + PROFILE_URL;
-
-        var oReq = new XMLHttpRequest();
-        oReq.open("GET", url);
-        oReq.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        oReq.setRequestHeader('Authorization', 'Basic ' + this.getAuth().getToken());
-
-        oReq.addEventListener('load', function(e) {
-
-            if (oReq.status !== 200) {
-                if (oReq.status === 401) {
-                    callback(ERROR.UNAUTHORIZED);
-                } else {
-                    callback(ERROR.PROFILE_ERROR);
-                }
-                return;
-            }
-
-            var profile,
-                userProfile;
-
-            if (typeof oReq.responseText === 'string') {
-                profile = JSON.parse(oReq.responseText);
-                userProfile = profile.profile;
-
-                // if the profile property exists then use it otherwise return the raw result
-                if (profile.hasOwnProperty('profile')) {
-                    if (profile.hasOwnProperty('home') && !userProfile.hasOwnProperty('home')) {
-                        // remap the home property to match that of the oauth path property to be
-                        // consistent with the variable name
-                        userProfile.path = profile.home + '/profile';
-                    }
-                }
+        this.getAuth().getToken(function(error, token) {
+            if (error) {
+                console.error("Error fetching profile data due to error code " + error);
+                throw Error("You must be authenticated priory to making a request");
             } else {
-                console.log("Profile response was not text therefore we generated a profile error");
-                callback(ERROR.PROFILE_ERROR);
+                var url = self.getAuth().getServer() + PROFILE_URL;
+
+                var oReq = new XMLHttpRequest();
+                oReq.open("GET", url);
+                oReq.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                oReq.setRequestHeader('Authorization', 'Basic ' + token);
+
+                oReq.addEventListener('load', function(e) {
+
+                    if (oReq.status !== 200) {
+                        if (oReq.status === 401) {
+                            callback(ERROR.UNAUTHORIZED);
+                        } else {
+                            callback(ERROR.PROFILE_ERROR);
+                        }
+                        return;
+                    }
+
+                    var profile,
+                        userProfile;
+
+                    if (typeof oReq.responseText === 'string') {
+                        profile = JSON.parse(oReq.responseText);
+                        userProfile = profile.profile;
+
+                        // if the profile property exists then use it otherwise return the raw result
+                        if (profile.hasOwnProperty('profile')) {
+                            if (profile.hasOwnProperty('home') && !userProfile.hasOwnProperty('home')) {
+                                // remap the home property to match that of the oauth path property to be
+                                // consistent with the variable name
+                                userProfile.path = profile.home + '/profile';
+                            }
+                        }
+                    } else {
+                        console.log("Profile response was not text therefore we generated a profile error");
+                        callback(ERROR.PROFILE_ERROR);
+                    }
+
+                    callback(null, userProfile);
+                });
+
+                oReq.addEventListener('error', function(e) {
+                    console.log("Failed to request " + url, oReq.responseText);
+                    callback(ERROR.PROFILE_ERROR);
+                });
+
+                oReq.send();
             }
-
-            callback(null, userProfile);
         });
 
-        oReq.addEventListener('error', function(e) {
-            console.log("Failed to request " + url, oReq.responseText);
-            callback(ERROR.PROFILE_ERROR);
-        });
 
-        oReq.send();
+
     };
 
     BasicAuthUserProfileProvider.ERROR_STATE = {
@@ -1201,6 +1395,14 @@ cq.mobileapps.targeting.util = (function(undefined) {
         UNAUTHORIZED: 3
     };
 
+    /**
+     * Return true if the authentication type is an instance of cq.mobileapps.auth.BasicAuth.
+     *
+     * @param {cq.mobileapps.auth.Auth} auth - the authentication instance.
+     * @returns {boolean} true if the auth is an instance of cq.mobileapps.auth.BasicAuth.
+     *
+     * @since 1.0
+     */
     BasicAuthUserProfileProvider.accepts = function(auth) {
         return (auth instanceof cq.mobileapps.auth.BasicAuth);
     };
@@ -1215,7 +1417,7 @@ cq.mobileapps.targeting.util = (function(undefined) {
 
     ns.ProfileProviderRegistry.register(BasicAuthUserProfileProvider);
 
-})(cq.mobileapps.provider);;
+})(cq.mobileapps.provider);
 ;(function(ns, undefined) {
 
     "use strict";
@@ -1224,7 +1426,8 @@ cq.mobileapps.targeting.util = (function(undefined) {
     var SCOPE_PROFILE = 'profile';
 
     /**
-     * @classdesc OAuthUserProfileProvider provides information about the current user.
+     * OAuthUserProfileProvider provides information about the current user.
+     *
      * @class
      * @augments cq.mobileapps.provider.Provider
      * @memberof cq.mobileapps.provider
@@ -1238,51 +1441,59 @@ cq.mobileapps.targeting.util = (function(undefined) {
     OAuthUserProfileProvider.prototype.constructor = OAuthUserProfileProvider;
 
     /**
-     * Retrieves the user profile information from the oauth server.
+     * Retrieves the user profile information from the oauth server.  Prior to making a call to the AEM
+     * there must be a valid OAuth token.
      *
-     * @override
+     * @param {cq.mobileapps.provider.Provider~fetchCallback} callback - The callback function
+     *
+     * @see {@link cq.mobileapps.auth.OAuth} for further details on OAuth authentication.
      * @since 1.0
      */
     OAuthUserProfileProvider.prototype.fetch = function(callback) {
-        if (!this.getAuth().getToken()) {
-            throw Error("You must be authenticated priory to making a request");
-        }
+        var self = this;
 
-        var url = this.getAuth().getServer() + PROFILE_URL;
+        this.getAuth().getToken(function(error, token) {
+            if (error) {
+                console.error("Error fetching profile data due to error code " + error);
+                throw Error("You must be authenticated priory to making a request");
+            } else {
+                var url = self.getAuth().getServer() + PROFILE_URL;
 
-        var oReq = new XMLHttpRequest();
-        oReq.open("GET", url);
-        oReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        oReq.setRequestHeader('Authorization', 'Bearer ' + this.getAuth().getToken());
+                var oReq = new XMLHttpRequest();
+                oReq.open("GET", url);
+                oReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                oReq.setRequestHeader('Authorization', 'Bearer ' + token);
 
-        oReq.addEventListener('load', function(e) {
+                oReq.addEventListener('load', function(e) {
 
-            if (oReq.status !== 200) {
-                if (oReq.status === 401) {
-                    callback(ERROR.UNAUTHORIZED);
-                } else {
+                    if (oReq.status !== 200) {
+                        if (oReq.status === 401) {
+                            callback(ERROR.UNAUTHORIZED);
+                        } else {
+                            callback(ERROR.PROFILE_ERROR);
+                        }
+                        return;
+                    }
+
+                    var profile;
+                    if (typeof oReq.responseText === 'string') {
+                        profile = JSON.parse(oReq.responseText);
+                    }
+                    callback(null, profile);
+                });
+
+                oReq.addEventListener('error', function(e) {
+                    console.log("Failed to request " + url, oReq.responseText);
                     callback(ERROR.PROFILE_ERROR);
-                }
-                return;
+                });
+
+                var params = cq.mobileapps.util.param({
+                    scope: SCOPE_PROFILE
+                });
+
+                oReq.send(params);
             }
-
-            var profile;
-            if (typeof oReq.responseText === 'string') {
-                profile = JSON.parse(oReq.responseText);
-            }
-            callback(null, profile);
         });
-
-        oReq.addEventListener('error', function(e) {
-            console.log("Failed to request " + url, oReq.responseText);
-            callback(ERROR.PROFILE_ERROR);
-        });
-
-        var params = cq.mobileapps.util.param({
-            scope: SCOPE_PROFILE
-        });
-
-        oReq.send(params);
     };
 
     OAuthUserProfileProvider.ERROR_STATE = {
@@ -1304,6 +1515,14 @@ cq.mobileapps.targeting.util = (function(undefined) {
         UNAUTHORIZED: 3
     };
 
+    /**
+     * Returns true if the auth object is an instance of cq.mobileapps.auth.OAuth.
+     *
+     * @param {cq.mobileapps.auth.Auth} auth - the authentication instance.
+     * @returns {boolean} true if the auth object is an instance of cq.mobileapps.auth.OAuth, otherwise return false.
+     *
+     * @since 1.0
+     */
     OAuthUserProfileProvider.accepts = function(auth) {
         return (auth instanceof cq.mobileapps.auth.OAuth);
     };
@@ -1314,8 +1533,10 @@ cq.mobileapps.targeting.util = (function(undefined) {
      */
     var ERROR = OAuthUserProfileProvider.ERROR_STATE;
 
+    // wire the object up to the ns
     ns.OAuthUserProfileProvider = OAuthUserProfileProvider;
 
+    // register the OAuthUserProfileProvider as a profile provider
     ns.ProfileProviderRegistry.register(OAuthUserProfileProvider);
 
 })(cq.mobileapps.provider);
