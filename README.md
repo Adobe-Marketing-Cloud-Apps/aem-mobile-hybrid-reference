@@ -17,9 +17,7 @@ It includes:
 3. Xcode (tested: `6.4`)
 4. Cordova (tested: `5.3.3`)
 5. [node.js](http://nodejs.org/) version `>=0.12.x`
-6. AEM 6.1 
-    - AEM [Service Pack 1](https://www.adobeaemcloud.com/content/marketplace/marketplaceProxy.html?packagePath=/content/companies/public/adobe/packages/cq610/servicepack/AEM-6.1-Service-Pack-1)
-    - Apps [Feature Pack 3](https://www.adobeaemcloud.com/content/marketplace/marketplaceProxy.html?packagePath=/content/companies/public/adobe/packages/cq610/featurepack3/cq-6.1.0-apps-featurepack)
+6. AEM 6.2
 
 ## Getting Started
 
