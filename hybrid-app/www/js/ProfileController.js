@@ -1,6 +1,6 @@
 angular.module('hybridapp.controllers')
 
-    .controller('ProfileCtrl', ['$scope', '$rootScope', '$http', 'appManifest', 'AEMcsrfToken', function ($scope, $rootScope, $http, appManifest, AEMcsrfToken) {
+    .controller('ProfileCtrl', ['$scope', '$rootScope', '$http', 'appManifest', 'AEMcsrfToken', '$jrCrop', function ($scope, $rootScope, $http, appManifest, AEMcsrfToken, $jrCrop) {
         // Form data for the user profile
         $scope.profileData = {};
         $scope.successMessage = null;
@@ -158,18 +158,32 @@ angular.module('hybridapp.controllers')
         function imageFromRoll() {
             navigator.camera.getPicture(onSuccess, onFail, {
                 quality: 50,
-                targetWidth: 350,
-                targetHeight: 350,
+                targetWidth: 400,
+                targetHeight: 400,
                 sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
                 destinationType: Camera.DestinationType.FILE_URI
             });
         }
 
+        function imageCrop() {
+            $jrCrop.crop({
+                url: imgURI,
+                width: 350,
+                height: 350,
+                circle: true,
+                title: 'Move and Scale'
+            }).then(function(canvas) {
+                // success!
+                $rootScope.profileImage = canvas.toDataURL();
+                $scope.$apply();
+            }, function() {
+                // User canceled or couldn't load image.
+            });
+        }
+
         function onSuccess(imageURI) {
             imgURI = imageURI;
-            $rootScope.profileImage = imageURI;
-            // force redraw
-            $scope.$apply();
+            imageCrop();
         }
 
         function onFail(message) {

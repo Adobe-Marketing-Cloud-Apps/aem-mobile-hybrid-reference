@@ -1,6 +1,6 @@
 // Hybrid Reference App
 
-angular.module('hybridapp', ['ionic', 'hybridapp.controllers', 'hybridapp.services','hybridapp.directives', 'cqMobileApps'])
+angular.module('hybridapp', ['ionic', 'hybridapp.controllers', 'hybridapp.services','hybridapp.directives', 'cqMobileApps', 'jrCrop'])
 
     .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
