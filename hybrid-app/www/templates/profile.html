@@ -6,20 +6,18 @@
         <form ng-submit="doUpdateProfile()">
             <div class="profile-top-section">
                 <div class="profile-image" ng-click="captureProfileImage()">
-                    <div class="profile-no-image-placeholder" ng-hide='profileImage'>
+                    <div class="profile-no-image-text" ng-hide='profileImage'>
                         <i class="icon ion-plus"></i>
                         <p>
-                            Upload Avatar
+                            Upload Square Avatar
                         </p>
                     </div>
                     <img ng-show='profileImage' class="avatar" src="{{profileImage}}" />
                 </div>
-                <div class="profile-user-names">
-                    <input type="text" placeholder="First Name" ng-model="profileData.firstName" required />
-                    <input type="text" placeholder="Last Name" ng-model="profileData.lastName"required />
-                </div>
             </div>
             <div class="profile-bottom-section">
+                <input type="text" placeholder="First Name" ng-model="profileData.firstName" required />
+                <input type="text" placeholder="Last Name" ng-model="profileData.lastName"required />
                 <input type="email" placeholder="Email" ng-model="profileData.email" required />
                 <input type="password" placeholder="Password" ng-model="profileData.password" />
                 <input type="password" placeholder="Confirm Password" ng-model="profileData.confirm" />

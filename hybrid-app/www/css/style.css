@@ -243,24 +243,25 @@ div.page-center {
 /* ################## */
 
 .profile-image {
-    float: left;
-    margin-right: 0.5rem;
+    float: center;
 }
 
 .profile-image img {
-    height: 5rem;
-    width: 5rem;
-    margin: 0;
+    height: 10rem;
+    width: 10rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.profile-no-image-placeholder {
-    color: #777777;
-    border: solid 1px #777777;
-    border-radius: 5px;
-    padding: 0.5rem;
+.profile-no-image-text {
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+    position: relative;
     text-align: center;
-    width: 5rem;
-    height: 5rem;
+    padding-top: 3.69rem;
+    padding-bottom: 3.69rem;
 }
 
 .profile input {
@@ -279,7 +280,7 @@ div.page-center {
 }
 
 .profile-top-section {
-    margin-top: 25%;
+    margin-top: 2rem;
 }
 
 .profile-user-names input {

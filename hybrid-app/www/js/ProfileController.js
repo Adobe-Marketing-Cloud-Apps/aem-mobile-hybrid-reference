@@ -199,7 +199,7 @@ angular.module('hybridapp.controllers')
                     break;
                 case 500:
                 default:
-                    $scope.errorMessage = "And error has occurred and your profile could not be saved.";
+                    $scope.errorMessage = "And error has occurred with the service and your profile could not be saved.";
             }
             // force redraw
             $scope.$apply();
