@@ -1,0 +1,1 @@
+<%@include file="/libs/cq/Page/proxy.jsp" %>
