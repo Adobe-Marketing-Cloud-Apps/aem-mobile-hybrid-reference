@@ -1,0 +1,31 @@
+<ion-view>
+    <ion-nav-title>
+        {{profileData.firstName}} {{profileData.lastName}}
+    </ion-nav-title>
+    <ion-content class="profile" scroll="false">
+        <form ng-submit="doUpdateProfile()">
+            <div class="profile-top-section">
+                <div class="profile-image" ng-click="captureProfileImage()">
+                    <div class="profile-no-image-text" ng-hide='profileImage'>
+                        <i class="icon ion-plus"></i>
+                        <p>
+                            Upload Avatar
+                        </p>
+                    </div>
+                    <img ng-show='profileImage' class="avatar" src="{{profileImage}}" />
+                </div>
+            </div>
+            <div class="profile-bottom-section">
+                <input type="text" placeholder="First Name" ng-model="profileData.firstName" required />
+                <input type="text" placeholder="Last Name" ng-model="profileData.lastName" required />
+                <input type="email" placeholder="Email" ng-model="profileData.email" required />
+                <input type="password" placeholder="Password" ng-model="profileData.password" />
+                <input type="password" placeholder="Confirm Password" ng-model="profileData.confirm" />
+            </div>
+            <button class="hide-on-keyboard-open profile-save button" type="submit" ng-show="currentProfile">Save</button>
+            <button class="hide-on-keyboard-open profile-save button" type="submit" ng-hide="currentProfile">Create</button>
+        </form>
+        <p class="profile-success-message" ng-show='successMessage'>{{successMessage}}</p>
+        <p class="profile-error-message" ng-show='errorMessage'>{{errorMessage}}</p>
+    </ion-content>
+</ion-view>
