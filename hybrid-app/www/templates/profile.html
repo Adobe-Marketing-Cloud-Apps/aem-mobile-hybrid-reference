@@ -18,9 +18,14 @@
 
         <p class="profile-error-message" ng-show='errorMessage'>{{errorMessage}}</p>
 
-        <a class="profile-button-edit button button-full button-dark" href="#/app/profileupdate">
-            EDIT
-        </a>
+        <div class="profile-buttons">
+            <a class="button button-clear icon" ng-click="$parent.logout()">
+                <i class="profile-button-text ion-log-out"></i>
+            </a>
+            <a class="button button-clear icon" href="#/app/profileupdate">
+                <i class="profile-button-text ion-ios-gear-outline"></i>
+            </a>
+        </div>
 
     </ion-content>
 </ion-view>

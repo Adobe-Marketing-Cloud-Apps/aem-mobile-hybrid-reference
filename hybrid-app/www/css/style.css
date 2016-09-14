@@ -311,6 +311,15 @@ div.page-center {
     bottom: 2rem;
 }
 
+.profile-buttons {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.profile-button-text {
+    font-size: 2.5rem;
+}
+
 .profile-bottom-section input {
     width: 100%;
 }

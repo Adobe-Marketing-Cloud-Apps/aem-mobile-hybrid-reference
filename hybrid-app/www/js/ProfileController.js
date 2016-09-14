@@ -211,6 +211,14 @@ angular.module('hybridapp.controllers')
             };
         }
 
+        $scope.logout = function () {
+            $scope.isLoggedIn = false;
+            $rootScope.profileImage = null;
+            $rootScope.currentProfile = null;
+            $scope.loginData = {};
+            TargetService.setData(null);
+        }
+
         function onSuccess(imageURI) {
             imgURI = imageURI;
             imageCrop();
