@@ -101,6 +101,16 @@ angular.module('hybridapp', ['ionic', 'hybridapp.controllers', 'hybridapp.servic
                 }
             })
 
+            .state('app.profileupdate', {
+                url: '/profileupdate',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/profile_update.html',
+                        controller: "ProfileCtrl"
+                    }
+                }
+            })
+
             .state('app.profile', {
                 url: '/profile',
                 views: {

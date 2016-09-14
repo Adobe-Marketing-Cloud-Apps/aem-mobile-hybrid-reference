@@ -264,6 +264,21 @@ div.page-center {
     padding-bottom: 3.69rem;
 }
 
+.profile-text {
+    text-align: center;
+}
+
+.profile-button-edit {
+    width: 100%;
+    height: 3rem;
+    text-align: center;
+    position: absolute;
+    bottom: 2rem;
+    color: #777777;
+    font-family: Montserrat, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+
 .profile input {
     border: solid 1px #777777;
     border-radius: 5px;
@@ -293,7 +308,7 @@ div.page-center {
 
 .profile-save {
     position: absolute;
-    bottom: 0;
+    bottom: 2rem;
 }
 
 .profile-bottom-section input {

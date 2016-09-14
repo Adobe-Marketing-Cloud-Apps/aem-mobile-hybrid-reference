@@ -1,6 +1,7 @@
 angular.module('hybridapp.controllers')
 
     .controller('ProfileCtrl', ['$scope', '$rootScope', '$http', 'appManifest', 'AEMcsrfToken', '$jrCrop', function ($scope, $rootScope, $http, appManifest, AEMcsrfToken, $jrCrop) {
+        
         // Form data for the user profile
         $scope.profileData = {};
         $scope.successMessage = null;
@@ -13,6 +14,7 @@ angular.module('hybridapp.controllers')
         var updatePath = '/content/mobileapps/hybrid-reference-app.ionicapp.profile.html';
         var aemPostCsrfParam = ':cq_csrf_token';
 
+        // Get the AEM publish server URL
         appManifest.getData(function (error, data) {
             manifestData = data;
 
@@ -27,6 +29,7 @@ angular.module('hybridapp.controllers')
 
         $scope.$watch('currentProfile', init);
 
+        // Prompt the user to add avatar from Camera or Camera Roll on device.
         $scope.captureProfileImage = function () {
             navigator.notification.confirm(
                 'Please select a source for your new avatar.',
@@ -47,6 +50,7 @@ angular.module('hybridapp.controllers')
             );
         };
 
+        // Update user profile data on the AEM Publish Server when the user submits the form.
         $scope.doUpdateProfile = function () {
             var submitPath = null;
             var password = null;
@@ -95,6 +99,8 @@ angular.module('hybridapp.controllers')
                     params: params
                 };
 
+                saveProfile();
+
                 fileTrans.upload(imgURI, encodeURI(submitPath), onSuccessPost, onFailedPost, options);
             } else {
                 // Just the form data to submit
@@ -103,6 +109,8 @@ angular.module('hybridapp.controllers')
                 formData.append('givenName', $scope.profileData.firstName);
                 formData.append('familyName', $scope.profileData.lastName);
                 formData.append('email', $scope.profileData.email);
+
+                saveProfile();
 
                 if ($scope.currentProfile) {
                     formData.append('profilePath', $scope.currentProfile.path);
@@ -125,8 +133,10 @@ angular.module('hybridapp.controllers')
         };
 
         function init() {
-            // Whether the user is already logged in
-            // populate the form
+            // Where the user is already authenticated, populate the form.
+
+            loadProfile();
+
             if ($rootScope.currentProfile) {
                 $scope.profileData.firstName = $rootScope.currentProfile['givenName'];
                 $scope.profileData.lastName = $rootScope.currentProfile['familyName'];
@@ -181,6 +191,26 @@ angular.module('hybridapp.controllers')
             });
         }
 
+        function saveProfile() {
+            window.localStorage.setItem("firstName", $scope.profileData.firstName);
+            window.localStorage.setItem("lastName", $scope.profileData.lastName);
+            window.localStorage.setItem("email", $scope.profileData.email);
+            window.localStorage.setItem("password", $scope.profileData.password);
+        }
+
+        function loadProfile() {
+            $scope.profileData.firstName = window.localStorage.getItem("firstName");
+        }
+
+        // Load the appropriate image, either the default placeholder or the users avatar.
+        $scope.getImage = function() {
+            if ($rootScope.profileImage) {
+                return $rootScope.profileImage;
+            } else {
+                return 'img/profile.png';
+            };
+        }
+
         function onSuccess(imageURI) {
             imgURI = imageURI;
             imageCrop();
@@ -195,12 +225,12 @@ angular.module('hybridapp.controllers')
             if ($scope.errorMessage) {
                 $scope.errorMessage = null;
             }
-            // for the case of no active session
-            // reset the form
+            // For the case of no active session reset the form
             if (!$scope.currentProfile) {
                 $rootScope.profileImage = null;
                 imgURI = null;
                 $scope.profileData = {};
+                
                 // force redraw
                 $scope.$apply();
             }
@@ -215,6 +245,7 @@ angular.module('hybridapp.controllers')
                 default:
                     $scope.errorMessage = "And error has occurred with the service and your profile could not be saved.";
             }
+
             // force redraw
             $scope.$apply();
         }
