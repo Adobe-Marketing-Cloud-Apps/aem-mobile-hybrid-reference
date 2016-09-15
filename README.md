@@ -2,6 +2,14 @@
 
 This is a basic AEM Mobile Hybrid reference application authored using [Ionic Framework](http://ionicframework.com/).
 
+We've taken a different approach with this mobile application, starting with a purely Ionic 'Host' that any web developer familiar with Angluar.js will be instantly familiar. Then we created an AEM directory to separately create and build the AEM authored content. 
+
+As an Angular.js developer you can create great expereinces in the hybrid-app directly, build and deploy your work using your favourite toolchain.
+
+As an AEM developer, you can create great authorable experiences in the aem-package.
+
+We then bring the two together by deploying the AEM-Package via AEM Package Manager and simply dragging and dropping the hyrbid-app (/www + config.xml) as a zip into the AEM Mobile Console (hint: we have scripts to help you automate this AND once you've done it once you can update individual files as needed).
+
 It includes:
 
 1. Mobile application written in [Ionic Framework](http://ionicframework.com/)
