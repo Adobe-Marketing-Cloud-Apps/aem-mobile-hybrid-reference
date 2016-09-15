@@ -18,6 +18,22 @@ public class LocationHelper extends WCMUse {
         location = locMgr.getLocation(page.getProperties().get("./location", String.class));
     }
 
+    public String getTitle() {
+        if (location != null) {
+            return location.getTitle();
+        } else {
+            return "";
+        }
+    }
+
+    public String getDescription() {
+        if (location != null) {
+            return location.getDescription();
+        } else {
+            return "";
+        }
+    }
+
     public String getAddress() {
         if (location != null) {
             return location.getFullAddress();

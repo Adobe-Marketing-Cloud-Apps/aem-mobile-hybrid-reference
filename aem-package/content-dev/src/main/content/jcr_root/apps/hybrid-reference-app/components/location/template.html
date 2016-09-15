@@ -1,6 +1,6 @@
 <div data-sly-use.locationHelper="${ 'com.adobe.ionicapp.sly.LocationHelper' @ page=resourcePage }" data-sly-unwrap>
     <ion-view view-title="${properties.jcr:title}">
-        <ion-content>
+        <ion-content scroll="false">
             <div class="list card">
 
                 <div class="item item-avatar">
@@ -11,6 +11,7 @@
 
                 <div class="item item-body">
                     <div data-sly-resource="${ @path='hero', resourceType='foundation/components/image' }"></div>
+                    <p>${locationHelper.description}</p>
                     <p>${properties.jcr:description}</p>
                     <div data-sly-resource="${ @path='content-par', resourceType='foundation/components/parsys' }" data-sly-unwrap></div>
                 </div>
