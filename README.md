@@ -10,12 +10,14 @@ As an AEM developer, you can create great authorable experiences in the aem-pack
 
 We then bring the two together by deploying the AEM-Package via AEM Package Manager and simply dragging and dropping the hyrbid-app (/www + config.xml) as a zip into the AEM Mobile Console (hint: we have scripts to help you automate this AND once you've done it once you can update individual files as needed).
 
-It includes:
+Includes:
 
-1. Mobile application written in [Ionic Framework](http://ionicframework.com/)
-2. ContentSync OTA updates
-3. Basic authentication
-4. Extensions to add authorable pages for: locations, events, and about us.
+1. Mobile application written in [Ionic Framework](http://ionicframework.com/),
+2. AEM ContentSync OTA updates,
+3. AEM Basic authentication,
+4. AEM oAuth2 authentication,
+5. AEM User profile management,
+4. AEM authorable templates and components for: locations, events, and about us and,
 5. Native device feature support with: location services, beacons, camera, accelerometer, file system, file transfer and, vibration.
 
 ## Minimum requirements for development
