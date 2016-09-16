@@ -16,6 +16,7 @@
             jcr:lastModified="{Date}2015-11-04T12:16:43.624-05:00"
             jcr:lastModifiedBy="admin"
             jcr:primaryType="nt:unstructured"
+            sling:resourceType="foundation/components/image"
             fileReference="/content/dam/mobileapps/hybrid-reference-app/page-images/locations/sanfrancisco/corp_a_sf02_0509.png"/>
         <cards jcr:primaryType="nt:unstructured">
             <img1
@@ -38,5 +39,11 @@
                 fileReference="/content/dam/mobileapps/hybrid-reference-app/page-images/locations/sanfrancisco/corp_a_sf12_0509.png"/>
         </cards>
         <subtext jcr:primaryType="nt:unstructured"/>
+        <hero
+            jcr:lastModified="{Date}2016-09-15T23:25:43.684-04:00"
+            jcr:lastModifiedBy="admin"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="foundation/components/image"
+            fileReference="/content/dam/mobileapps/hybrid-reference-app/page-images/locations/sanfrancisco/corp_a_sf02_0509.png"/>
     </jcr:content>
 </jcr:root>

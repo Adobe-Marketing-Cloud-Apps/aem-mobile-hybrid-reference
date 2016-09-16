@@ -1,51 +1,64 @@
 <ion-view title="Location">
-    <ion-content class="location" scroll="false">
+    <ion-content class="has-footer location" scroll="false">
 
-        <div class="map-view">
-            <google-map zoom="12"
-                        maptype="roadmap"
-                        center="origin"
-                        markers="locations"
-                        refresh="showMap"
-                        cq-on-info-click="details(object, '#/app/location/details') ">
+        <div class="list-view" ng-cloak ng-hide="showMap">
+            <div class="master" ng-if="masterLocationList.length !== 0">
+                <ion-list>
+                    <ion-item class="item-button-right" ng-repeat="location in locations | masterLocation as masterLocationList">
+                        <div class="cardimagecontainer">
+                            <ion-slide-box>
+                                <ion-slide>
+                                    <img ng-src="{{location.imgUrl1}}" class="cardimage">
+                                </ion-slide>
+                                <ion-slide>
+                                    <img ng-src="{{location.imgUrl2}}" class="cardimage">
+                                </ion-slide>
+                                <ion-slide>
+                                    <img ng-src="{{location.imgUrl3}}" class="cardimage">
+                                </ion-slide>
+                            </ion-slide-box>
+                        </div>
+                        <h3>{{location.title}}</h3>
+                        <div class="locationInfo">
+                            <p>{{location.description}}</p>
+                            <p>{{location.distance | distance}}</p>
+                        </div>
+                        <button class="button button-outline button-dark" ng-click="showDetails(location)">
+                            Details
+                        </button>
+                    </ion-item>
+                </ion-list>
+            </div>
+            <ion-list ng-if="secondaryLocationList.length !== 0">
+                <div class="item item-divider">
+                    More Locations
+                </div>
+                <ion-scroll>
+                    <ion-item class="item-button-right" ng-repeat="location in locations | secondaryLocation as secondaryLocationList">
+                        <h3>{{location.title}}</h3>
+                        <div class="locationInfo">
+                            <p>{{location.description}}</p>
+                            <p>{{location.distance | distance}}</p>
+                        </div>
+                        <button class="button button-outline button-dark" ng-click="showDetails(location)">
+                            Details
+                        </button>
+                    </ion-item>
+                </ion-scroll>
+            </ion-list>
+        </div>
+
+        <div class="map-view" ng-show="showMap">
+            <google-map zoom="12" maptype="roadmap" center="origin" markers="locations" refresh="showMap" cq-on-info-click="showDetails(object)">
                 Loading map...
             </google-map>
         </div>
 
-        <div class="list-view">
-                <ion-scroll>
-                    <ion-list>
-                        <ion-item ng-repeat="location in locations">
-                            <div class="locationcard">
-                                <div>
-                                    <div class="cardimagecontainer">
-                                        <ion-slide-box>
-                                            <ion-slide>
-                                                <img ng-src="{{location.imgUrl1}}" class="cardimage">
-                                            </ion-slide>
-                                            <ion-slide>
-                                                <img ng-src="{{location.imgUrl2}}" class="cardimage">
-                                            </ion-slide>
-                                            <ion-slide>
-                                                <img ng-src="{{location.imgUrl3}}" class="cardimage">
-                                            </ion-slide>
-                                        </ion-slide-box>
-                                    </div>
-                                    <div class="locationInfo">
-                                        <h3>{{location.title}}</h3>
-                                        <p>{{location.address}}</p>
-                                    </div>
-                                </div>
-
-                                <a class="locationDetails" href="#/app/location/details/{{location.detailsUrl}}">
-                                    <b>Details</b>
-                                </a>
-                                </a>
-                            </div>
-                        </ion-item>
-                    </ion-list>
-                </ion-scroll>
-            </div>
-
     </ion-content>
+    <ion-footer-bar>
+        <div class="button-bar">
+            <a class="button button-outline" ng-class="{'button-stable' : showMap, 'button-dark': !showMap}" ng-click="toggleMap(false)">List</a>
+            <a class="button button-outline" ng-class="{'button-dark' : showMap, 'button-stable': !showMap}" ng-click="toggleMap(true)">Map</a>
+        </div>
+    </ion-footer-bar>
 </ion-view>

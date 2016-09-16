@@ -7,33 +7,33 @@
 */
 
 img, object, embed, video {
-  max-width: 100%;
+    max-width: 100%;
 }
 
 body {
-  cursor: url('http://ionicframework.com/img/finger.png'), auto;
-  background: #E3E3E3;
+    cursor: url('http://ionicframework.com/img/finger.png'), auto;
+    background: #E3E3E3;
 }
 
 div.page-center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100px;
-  height: 100px;
-  margin-top: 200px; /* Half the height */
-  margin-left: -50px; /* Half the width */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    margin-top: 200px; /* Half the height */
+    margin-left: -50px; /* Half the width */
 }
 
 #linear-gradient {
-  background: -webkit-linear-gradient(#fff, #999999); /*Safari 5.1-6*/
-  background: -o-linear-gradient(#fff, #999999); /*Opera 11.1-12*/
-  background: -moz-linear-gradient(#fff, #999999); /*Fx 3.6-15*/
-  background: linear-gradient(#fff, #999999); /*Standard*/
+    background: -webkit-linear-gradient(#fff, #999999); /*Safari 5.1-6*/
+    background: -o-linear-gradient(#fff, #999999); /*Opera 11.1-12*/
+    background: -moz-linear-gradient(#fff, #999999); /*Fx 3.6-15*/
+    background: linear-gradient(#fff, #999999); /*Standard*/
 }
 
 .button.ng-hide{
-  display:none;
+    display:none;
 }
 
 .connectmessage {
@@ -52,7 +52,7 @@ div.page-center {
     margin-bottom: 50%;
 }
 .placeholder h3 {
-    color: #999999;    
+    color: #999999;
 }
 
 /* ################ */
@@ -167,17 +167,19 @@ div.page-center {
 /* Locations style    */
 /* ################## */
 
-.location .map-view {
-    height: 45%;
+.location .map-view,
+.location .map-view > div {
+    height: 100%;
     width: 100%;
 }
 
-.location .map-view > div {
-    height:100%;
+.location .list-view {
+    height: 100%
 }
 
-.location .list-view {
-    height: 55%;
+.location .list-view .item-button-right button {
+    top: auto;
+    bottom: 8px;
 }
 
 .location .list-view .item {
@@ -187,12 +189,15 @@ div.page-center {
 }
 
 .location .list-view .cardimagecontainer {
-    max-height:10rem;
+    max-height: 15rem;
+    margin-bottom: 0.5rem;
     overflow:hidden;
 }
 
 .location .list-view .cardimage {
     width: 100%;
+    height: 200px;
+    object-fit: cover;
 }
 
 .location .list-view .locationHeart {
@@ -220,9 +225,14 @@ div.page-center {
     color: #FFFFFF;
 }
 
+.location .list-view .item-button-right .locationInfo {
+    padding-right: 80px;
+}
+
 .location .list-view .locationInfo {
     float: left;
     padding-top: 0.65rem;
+    width: 100%;
 }
 
 .location .list-view .locationInfo h3 {
@@ -232,6 +242,7 @@ div.page-center {
 .location .list-view .locationInfo p {
     color: #000000;
     font-size: small;
+    white-space: normal;
 }
 
 .cq-image-placeholder {
@@ -243,40 +254,24 @@ div.page-center {
 /* ################## */
 
 .profile-image {
-    float: center;
+    float: left;
+    margin-right: 0.5rem;
 }
 
 .profile-image img {
-    height: 10rem;
-    width: 10rem;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    height: 5rem;
+    width: 5rem;
+    margin: 0;
 }
 
-.profile-no-image-text {
-    display: block;
-    margin-left: auto;
-    margin-right: auto; 
-    position: relative;
-    text-align: center;
-    padding-top: 3.69rem;
-    padding-bottom: 3.69rem;
-}
-
-.profile-text {
-    text-align: center;
-}
-
-.profile-button-edit {
-    width: 100%;
-    height: 3rem;
-    text-align: center;
-    position: absolute;
-    bottom: 2rem;
+.profile-no-image-placeholder {
     color: #777777;
-    font-family: Montserrat, Helvetica, Arial, sans-serif;
-    font-size: 14px;
+    border: solid 1px #777777;
+    border-radius: 5px;
+    padding: 0.5rem;
+    text-align: center;
+    width: 5rem;
+    height: 5rem;
 }
 
 .profile input {
@@ -295,7 +290,7 @@ div.page-center {
 }
 
 .profile-top-section {
-    margin-top: 2rem;
+    margin-top: 25%;
 }
 
 .profile-user-names input {
@@ -308,16 +303,7 @@ div.page-center {
 
 .profile-save {
     position: absolute;
-    bottom: 2rem;
-}
-
-.profile-buttons {
-    text-align: center;
-    margin-top: 2rem;
-}
-
-.profile-button-text {
-    font-size: 2.5rem;
+    bottom: 0;
 }
 
 .profile-bottom-section input {

@@ -1,7 +1,8 @@
 angular.module('hybridapp.services', [])
 
     .constant('appConfig', {
-        manifestFileName: 'pge-content-packages.json'
+        manifestFileName: 'pge-content-packages.json',
+        basePath: 'content/mobileapps/hybrid-reference-app'
     })
 
     .factory('appManifest', ['appConfig', function (appConfig) {

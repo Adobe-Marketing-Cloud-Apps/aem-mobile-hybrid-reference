@@ -22,7 +22,7 @@
                     com.day.cq.wcm.foundation.Image,
                     com.adobe.cq.mobile.angular.data.util.FrameworkContentExporterUtils,
                     org.apache.sling.api.SlingHttpServletRequest,
-                    org.apache.sling.commons.json.JSONException" %><%
+                    org.apache.sling.commons.json.JSONException, org.apache.sling.api.resource.ValueMap" %><%
 %><%@include file="/libs/foundation/global.jsp" %>
 <%
 
@@ -35,17 +35,24 @@
 
     LocationManager locMgr = slingRequest.getResourceResolver().adaptTo(LocationManager.class);
     Location location = locMgr.getLocation(properties.get("./location", String.class));
+    ValueMap locationProps = resource.adaptTo(ValueMap.class);
 
     JSONObject locationJson = new JSONObject();
 
     try {
 
+        if (locationProps.containsKey("master")) {
+            locationJson.put("master", locationProps.get("master", false));
+        }
+
         locationJson.put("title", new String(location.getTitle()));
+        locationJson.put("description", new String(location.getDescription()));
 
         String address = location.getFullAddress();
         address = address.replaceAll(System.getProperty("line.separator"), " ").trim();
 
         locationJson.put("address", new String(address));
+        locationJson.put("phone", new String(location.getPhone()));
         locationJson.put("latitude", new Double(location.getCoordinates().getLat()));
         locationJson.put("longitude", new Double(location.getCoordinates().getLng()));
 

@@ -38,11 +38,17 @@
                                                 sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
                                                 fieldDescription="Path containing location data"
                                                 fieldLabel="Location Path"
-                                                predicate="nosystem"
                                                 name="./location"
                                                 placeholder="/etc/hybrid-reference-app/locationdata"
+                                                predicate="nosystem"
                                                 required="{Boolean}true"
                                                 rootPath="/etc/hybrid-reference-app"/>
+                                            <master
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                                name="./master"
+                                                text="Indicate as a master location"
+                                                value="false"/>
                                         </items>
                                     </details>
                                     <images

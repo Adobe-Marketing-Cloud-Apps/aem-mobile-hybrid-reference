@@ -297,7 +297,7 @@ angular.module('hybridapp.directives', [])
                         var latlng = objToLatLng(location.coordinates || location);
                         map.addMarker({
                             'position': latlng,
-                            'title': location.name,
+                            'title': location.title,
                             'snippet': location.address
                         }, function(marker) {
                             var id = marker.getId();

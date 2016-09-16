@@ -1,15 +1,31 @@
 angular.module('hybridapp.controllers')
 
-    .controller('LocationCtrl', ['$scope', '$http', function ($scope, $http) {
+    .controller('LocationCtrl', ['$rootScope', '$scope', '$http', '$ionicScrollDelegate', 'appConfig', function ($rootScope, $scope, $http, $ionicScrollDelegate, appConfig) {
 
         var locationData = [];
         var sortedLocationData = [];
-        var currentPosition = null;
-        var closestOfficeTitle;
 
-        $scope.showMap = true;
+        $scope.showMap = false;
         $scope.origin = null;
         $scope.locations = null;
+
+        $scope.scrollTop = function() {
+            $ionicScrollDelegate.scrollTop();
+        };
+
+        $scope.scrollBottom = function() {
+            $ionicScrollDelegate.scrollBottom();
+        };
+
+        $scope.toggleMap = function(active) {
+            $scope.showMap = active;
+            $scope.scrollTop();
+        };
+
+        $scope.showDetails = function (location) {
+            $rootScope.currentLocation = location;
+            window.location.href = "#/app/location/details/" + location.detailsUrl;
+        };
 
         getCurrentPosition();
 
@@ -37,12 +53,7 @@ angular.module('hybridapp.controllers')
                 lng: position.coords.longitude
             };
 
-            currentPosition = position;
-
-            var lat = currentPosition.coords.latitude;
-            var long = currentPosition.coords.longitude;
-
-            console.log("current position found at: " + lat + " " + long);
+            console.log("current position found at: " + $scope.origin.lat + " " + $scope.origin.lng);
 
             if (sortedLocationData.length == 0) {
                 loadLocations();
@@ -51,7 +62,7 @@ angular.module('hybridapp.controllers')
         }
 
         function loadLocations() {
-            $http.get('content/mobileapps/hybrid-reference-app/en/welcome/locations.locationdata.json')
+            $http.get(appConfig.basePath + '/en/welcome/locations.locationdata.json')
                 .then(renderLocations, locationError);
         }
 
@@ -61,53 +72,57 @@ angular.module('hybridapp.controllers')
 
         function renderLocations(response) {
             locationData = response.data;
-            SortLocations(currentPosition.coords.latitude, currentPosition.coords.longitude);
+            sortLocations($scope.origin);
             $scope.locations = sortedLocationData;
         }
 
-        function SortLocations(latitude, longitude) {
-            var mindif = 99999;
-            var closest = 0;
+        function sortLocations(origin) {
+            applyDistance(origin);
+            if (angular.isArray(locationData)) {
+                sortedLocationData = locationData.sort(compareDistance);
+            }        }
 
-            for (index = 0; index < locationData.length; ++index) {
-                var dif = PythagorasEquirectangular(latitude, longitude, locationData[index].latitude, locationData[index].longitude);
-                if (dif < mindif) {
-                    closest = index;
-                    mindif = dif;
-                }
+        /** Converts numeric degrees to radians */
+        if (typeof Number.prototype.toRad == 'undefined') {
+            Number.prototype.toRad = function() {
+                return this * Math.PI / 180;
             }
-
-            closestOfficeTitle = locationData[closest].title;
-            locationData[closest].title = locationData[closest].title.concat(" - closest office");
-            sortedLocationData[0] = locationData[closest];
-            locationData.splice(closest, 1);
-
-            $scope.origin = {
-                lat: sortedLocationData[0].latitude,
-                lng: sortedLocationData[0].longitude
-            };
-
-            for (index = 0; index < locationData.length; ++index) {
-                sortedLocationData[index + 1] = locationData[index];
-            }
-
         }
 
-        function PythagorasEquirectangular(lat1, lon1, lat2, lon2) {
-            lat1 = Deg2Rad(lat1);
-            lat2 = Deg2Rad(lat2);
-            lon1 = Deg2Rad(lon1);
-            lon2 = Deg2Rad(lon2);
-            var R = 6371; // km
-            var x = (lon2 - lon1) * Math.cos((lat1 + lat2) / 2);
-            var y = (lat2 - lat1);
-            var d = Math.sqrt(x * x + y * y) * R;
+        function compareDistance(a,b) {
+            if (a.distance == undefined || b.distance == undefined) return 0;
+            if (a.distance < b.distance)
+                return -1;
+            if (a.distance > b.distance)
+                return 1;
+            return 0;
+        }
+
+        function calculateDistance(start, end) {
+            var d = 0;
+            if (start && end) {
+                var R = 6371;
+                var lat1 = start.lat.toRad(), lon1 = start.lng.toRad();
+                var lat2 = end.lat.toRad(), lon2 = end.lng.toRad();
+                var dLat = lat2 - lat1;
+                var dLon = lon2 - lon1;
+
+                var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                    Math.cos(lat1) * Math.cos(lat2) *
+                    Math.sin(dLon/2) * Math.sin(dLon/2);
+                var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+                d = R * c;
+            }
             return d;
         }
 
-        // Convert Degrees to Radians
-        function Deg2Rad(deg) {
-            return deg * Math.PI / 180;
+        function applyDistance(origin) {
+            if (origin.lat && origin.lng) {
+                for (var i=0; i < locationData.length; i++) {
+                    var loc = locationData[i];
+                    loc["distance"] = calculateDistance(origin, {lat:loc.latitude,lng:loc.longitude});
+                }
+            }
         }
 
         function showError(error) {
@@ -115,5 +130,52 @@ angular.module('hybridapp.controllers')
         }
 
     }])
+
+    .filter('masterLocation', function() {
+        return function(items) {
+            var filtered = [];
+            if (!items) {
+                return filtered;
+            }
+            for (var i = 0; i < items.length; i++) {
+                var item = items[i];
+                if (item.master) {
+                    filtered.push(item);
+                }
+            }
+            return filtered;
+        }
+    })
+
+    .filter('secondaryLocation', function() {
+        return function(items) {
+            var filtered = [];
+            if (!items) {
+                return filtered;
+            }
+            for (var i = 0; i < items.length; i++) {
+                var item = items[i];
+                if (!item.master) {
+                    filtered.push(item);
+                }
+            }
+            return filtered;
+        }
+    })
+
+    .filter('distance', function() {
+        function formatDistance(d) {
+            d = d || 0;
+            if (d > 1) {
+                return Math.round(d) + " km";
+            } else {
+                d = d * 1000;
+                return Math.round(d) + " m";
+            }
+        }
+        return function(input) {
+            return formatDistance(input);
+        }
+    })
 
 ;
