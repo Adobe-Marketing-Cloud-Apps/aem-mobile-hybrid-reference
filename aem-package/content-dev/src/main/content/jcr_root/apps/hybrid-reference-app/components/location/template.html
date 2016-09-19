@@ -1,21 +1,11 @@
 <div data-sly-use.locationHelper="${ 'com.adobe.ionicapp.sly.LocationHelper' @ page=resourcePage }" data-sly-unwrap>
     <ion-view view-title="${properties.jcr:title}">
-        <ion-content class="location-detail" scroll="false">
+        <ion-content class="location-detail">
             <div class="card">
-                <div class="item">
+                <div class="item item-divider">
                     <h2>${properties.jcr:title}</h2>
                     <p>${locationHelper.address}</p>
                     <div data-sly-resource="${ @path='subtext', resourceType='foundation/components/text' }"></div>
-                </div>
-                <div class="item item-body">
-                    <ion-scroll>
-                        <div class="hero-image">
-                            <div data-sly-resource="${ @path='hero', resourceType='foundation/components/image' }"></div>
-                        </div>
-                        <p>${locationHelper.description}</p>
-                        <p>${properties.jcr:description}</p>
-                        <div data-sly-resource="${ @path='content-par', resourceType='foundation/components/parsys' }" data-sly-unwrap></div>
-                    </ion-scroll>
                 </div>
                 <div class="item tabs">
                     <a class="tab-item" ng-click="phone($event, '${locationHelper.phone}')">
@@ -27,6 +17,14 @@
                     <a class="tab-item" ng-click="directions($event)">
                         <i class="icon ion-ios-navigate"></i>
                     </a>
+                </div>
+                <div class="item item-body">
+                        <div class="hero-image">
+                            <div data-sly-resource="${ @path='hero', resourceType='foundation/components/image' }"></div>
+                        </div>
+                        <p>${locationHelper.description}</p>
+                        <p>${properties.jcr:description}</p>
+                        <div data-sly-resource="${ @path='content-par', resourceType='foundation/components/parsys' }" data-sly-unwrap></div>
                 </div>
             </div>
         </ion-content>
