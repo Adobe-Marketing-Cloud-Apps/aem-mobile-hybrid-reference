@@ -6,7 +6,7 @@ module.exports = [
 		'bundleId': 'com.adobe.aem.app.hybridreference',
 		'platformName': 'iOS',
 		'platformVersion': '9.3',
-		'deviceName': 'iPhone 6s',
+		'deviceName': 'iPhone 6s Plus',
 		'autoWebview': true
 	}
 ];

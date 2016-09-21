@@ -1,16 +1,15 @@
 var browserPerf = require('browser-perf');
-var browsers = require('../browsers/iphone-6s-9.3');
-var scrollActions = require('../actions/scroll-ion-content');
-var metrics = require('../metrics/metrics');
+var browsers = require('./browsers/android');
+var scrollActions = require('./actions/scroll-ion-content');
+var metrics = require('./metrics/metrics');
 var util = require('util');
 
 // Location of the sample to test
-var linkHref = 'fast/1-scroll/www/index.html';
-var preScript = require('../pre-scripts/navigate-to-sample')(linkHref);
+var preScript = require('./pre-scripts/navigate-to-news-page')();
 
 var options = {
-	// Use local Appium
-	selenium: 'http://localhost:4723/wd/hub',
+	// Use ChromeDriver port
+	selenium: 'localhost:9515',
 	browsers: browsers,
 	// Use the preScript to navigate to the area we want to test
 	preScript: preScript,
@@ -24,7 +23,8 @@ var options = {
 browserPerf(null, 
 	function(err, res){
 		if (err) {
-			return console.error('Error: ' + err);
+			// print error, but don't return
+			console.error('Error: ' + util.inspect(err, {showHidden: false, depth: null}));
 		}
 		// else: success
 		console.log("--- Begin test results ---");

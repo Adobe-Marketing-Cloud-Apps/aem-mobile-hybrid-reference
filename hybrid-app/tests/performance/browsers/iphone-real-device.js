@@ -2,12 +2,12 @@ var currentDir = __dirname;
 
 module.exports = [
 	{
-		'app': currentDir + '/../../platforms/ios/build/device/PerfSample.app',
-		'bundleId': 'com.brucelefebvre.PGAppPerf',
+		'app': currentDir + '/../../../platforms/ios/build/device/Hybrid Reference App.app',
+		'bundleId': 'com.adobe.aem.app.hybridreference',
 		'platformName': 'iOS',
-		'platformVersion': '<your device version>',
-		'deviceName': '<your device name>',
-		'udid': '<your device UDID>',
+		'platformVersion': '9.3.5',
+		'deviceName': 'BruceiPhone',
+		'udid': '<UDID>',
 		'autoWebview': true
 	}
 ];
