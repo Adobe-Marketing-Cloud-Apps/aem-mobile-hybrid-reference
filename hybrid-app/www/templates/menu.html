@@ -31,16 +31,6 @@
                     <i class="icon ion-log-in"></i>
                 </ion-item>
 
-                <ion-item ng-show='isLoggedIn' class="item item-icon-right" menu-close ng-click="logout()" ui-sref="app.welcome">
-                    Logout
-                    <i class="icon ion-log-in"></i>
-                </ion-item>
-
-                <ion-item class="item item-icon-right" menu-close href="#/app/profile">
-                    Profile
-                    <i class="icon ion-person"></i>
-                </ion-item>
-
                 <ion-item class="item item-icon-right" menu-close href="#/app/news">
                     News and Events
                     <i class="icon ion-earth"></i>
@@ -59,6 +49,11 @@
                 <ion-item class="item item-icon-right" menu-close ng-click="updateApp('en')">
                     Update
                     <i class="icon ion-ios-cloud-download"></i>
+                </ion-item>
+
+                <ion-item class="item item-icon-right" menu-close href="#/app/profile">
+                    Profile
+                    <i class="icon ion-person"></i>
                 </ion-item>
 
             </ion-list>

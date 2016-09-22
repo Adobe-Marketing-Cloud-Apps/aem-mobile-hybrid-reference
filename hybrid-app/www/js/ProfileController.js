@@ -217,6 +217,8 @@ angular.module('hybridapp.controllers')
             $rootScope.currentProfile = null;
             $scope.loginData = {};
             TargetService.setData(null);
+            
+            $state.go('/app/welcome');
         }
 
         function onSuccess(imageURI) {

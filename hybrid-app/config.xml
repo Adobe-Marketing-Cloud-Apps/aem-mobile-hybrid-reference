@@ -82,6 +82,10 @@
         <param name="API_KEY_FOR_ANDROID" value="AIzaSyA5dTd06Y9RcVerBd_qrmhB01XGT6788q4" />
         <param name="API_KEY_FOR_IOS" value="AIzaSyDgDUy7QGg8eVNNmJv51wPl3eMXCTB_d0o" />
     </plugin>
+    <plugin name="cordova-plugin-facebook4" spec="^1.0.0">
+        <variable name="APP_ID" value="1201727453219260" />
+        <variable name="APP_NAME" value="awesome" />
+    </plugin>
 
 
     <hook src="scripts/merge-aem.js" type="before_prepare" />
