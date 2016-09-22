@@ -110,3 +110,43 @@ Content being managed by AEM will be automatically merged into the hybrid app du
     cordova platform add ios
     cordova run ios --emulator --aem-merge
 
+
+## Performance Testing
+
+This app contains a [browser-perf](https://github.com/axemclion/browser-perf) test that reports performance metrics on the scrolling of the News and Events page. There are a few dependencies you will need before running the test. 
+
+
+### browser-perf Dependencies
+
+- node `>= 4.3.0`
+- PhoneGap cli `>= 6.2.0`
+- (iOS) Appium `== 1.5.2`
+- (iOS) Xcode `>= 7.3` 
+- (iOS, for real devices) ideviceinstaller: `brew install ideviceinstaller`
+- (iOS, for real devices) ios-webkit-debug-proxy: `brew install ios-webkit-debug-proxy`
+- (Android) ChromeDriver `== 2.24`: ([download here](https://sites.google.com/a/chromium.org/chromedriver/downloads))
+
+
+### Prep
+
+Run Appium:
+
+    $ appium
+
+### iOS
+
+If running the tests on a real device, figure out the UDID of that device:
+
+    $ phonegap run --list -d
+
+Run
+[ios_webkit_debug_proxy on port :27753](http://appium.io/slate/en/master/?javascript#ios-webkit-debug-proxy.md). Replace `<device UDID>` with yours (from above):
+
+    $ ios_webkit_debug_proxy -c <device UDID>:27753 -d
+
+Run the test:
+
+    $ node tests/performance/ios-news-scrolling-test.js
+
+If successful, results will be printed to the console. Otherwise, an error will be printed. Observe the Appium logs for further details.
+
