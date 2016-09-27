@@ -146,7 +146,7 @@ Run
 
 Run the test:
 
-    $ node tests/performance/ios-news-scrolling-test.js
+    $ node tests/performance/ios-news-scrolling-test.js iphone-6s-9.3
 
 If successful, results will be printed to the console. Otherwise, an error will be printed. Observe the Appium logs for further details.
 

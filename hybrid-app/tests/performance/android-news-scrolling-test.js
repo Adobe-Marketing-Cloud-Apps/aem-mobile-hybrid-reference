@@ -1,5 +1,6 @@
 var browserPerf = require('browser-perf');
-var browsers = require('./browsers/android');
+var browserSelector = require('./util/browser-selector');
+var browsers = require('./browsers/' + browserSelector.getBrowser());
 var scrollActions = require('./actions/scroll-ion-content');
 var metrics = require('./metrics/metrics');
 var util = require('util');
