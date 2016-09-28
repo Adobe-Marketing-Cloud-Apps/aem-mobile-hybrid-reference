@@ -1,9 +1,8 @@
 var browserPerf = require('browser-perf');
-
-// Indicate which browsers/devices should be tested. see browsers/iphone-real-device
+var browserSelector = require('./util/browser-selector');
+// Determine which browsers/devices should be tested. see browsers/iphone-real-device
 // for an example of running on a physical iOS device
-//var browsers = require('./browsers/iphone-real-device');
-var browsers = require('./browsers/iphone-6s-plus-9.3');
+var browsers = require('./browsers/' + browserSelector.getBrowser());
 
 // Details of the action to analyze
 var scrollActions = require('./actions/scroll-ion-content');
