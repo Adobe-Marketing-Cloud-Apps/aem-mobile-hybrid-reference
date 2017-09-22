@@ -2,7 +2,7 @@
 
 This is a basic AEM Mobile Hybrid reference application authored using [Ionic Framework](http://ionicframework.com/).
 
-We've taken a different approach with this mobile application, starting with a purely Ionic 'Host' that any web developer familiar with Angluar.js will be instantly familiar. Then we created an AEM directory to separately create and build the AEM authored content. 
+We've taken a different approach with this mobile application, starting with a purely Ionic 'Host' that any web developer familiar with Angluar.js will be instantly familiar. Then we created an AEM directory to separately create and build the AEM authored content.
 
 As an Angular.js developer you can create great expereinces in the hybrid-app directly, build and deploy your work using your favourite toolchain.
 
@@ -54,7 +54,7 @@ A script is available that will create an archive of the app or you can use any 
 1. Create, read, update and, delete (CRUD) app pages
 1. Publish updates OTA with ContentSync
 1. Open [AEM Mobile Verify](https://itunes.apple.com/us/app/phonegap-enterprise/id924780940?ls=1&mt=8) to view your app
- 
+
 Review the [Customizing App Import](../../wiki/Customizing-App-Import) wiki for details on how to control and customize the AEM Mobile app import process.
 
 ## Install AEM Package
@@ -70,7 +70,7 @@ NOTE: For logout, user profile creation and update, the packages must be install
 
 ## Edit in AEM
 
-NOTE: Once built and installed via maven, your hybrid app should be editable in AEM.  
+NOTE: Once built and installed via maven, your hybrid app should be editable in AEM.
 
 WARNING: You should only edit the sample that is deployed for quick demo purposes. If you plan to create content and expect to continue to redeploy developer updates over time (you will), you need to create a new application based on this template by selecting the '+' new app button on the Mobile Console and selecting the Hybrid Template during the creation process.  This will create a clean separation between the Author creating content in the new application and any developer updates (the newly created app will pick up the developer updates without clobbering the author's content).  Taking this one step further, navigate into the package manager and create a new package for your new application (including assets). Then download and save this package as a backup (you can automate this process).
 
@@ -78,7 +78,7 @@ The [dashboard](http://localhost:4502/libs/mobileapps/admin/content/dashboard.ht
 now contain a new entry called *English* under the *Manage Content* section.
 
 If you followed the instructions correctly and have your author instance running locally on `:4502`, you should be able to author the hybrid app that was previously added via the following link:
-[http://localhost:4502/editor.html/content/mobileapps/hybrid-reference-app/en/about.html](http://localhost:4502/editor.html/content/mobileapps/hybrid-reference-app/en/about.html)
+[http://localhost:4502/editor.html/content/mobileapps/hybrid-reference-app/en/welcome/about.html](http://localhost:4502/editor.html/content/mobileapps/hybrid-reference-app/en/welcome/about.html)
 
 # Production
 
@@ -113,7 +113,7 @@ Content being managed by AEM will be automatically merged into the hybrid app du
 
 ## Performance Testing
 
-This app contains a [browser-perf](https://github.com/axemclion/browser-perf) test that reports performance metrics on the scrolling of the News and Events page. There are a few dependencies you will need before running the test. 
+This app contains a [browser-perf](https://github.com/axemclion/browser-perf) test that reports performance metrics on the scrolling of the News and Events page. There are a few dependencies you will need before running the test.
 
 
 ### browser-perf Dependencies
@@ -121,7 +121,7 @@ This app contains a [browser-perf](https://github.com/axemclion/browser-perf) te
 - node `>= 4.3.0`
 - PhoneGap cli `>= 6.2.0`
 - (iOS) Appium `== 1.5.2`
-- (iOS) Xcode `>= 7.3` 
+- (iOS) Xcode `>= 7.3`
 - (iOS, for real devices) ideviceinstaller: `brew install ideviceinstaller`
 - (iOS, for real devices) ios-webkit-debug-proxy: `brew install ios-webkit-debug-proxy`
 - (Android) ChromeDriver `== 2.24`: ([download here](https://sites.google.com/a/chromium.org/chromedriver/downloads))
